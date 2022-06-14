@@ -1,0 +1,56 @@
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://i.postimg.cc/D0yP09Jf/aaa.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img  src="https://cdn.portalpower.com.br/wp-content/uploads/2019/11/Flamengo-Hepta-Campe%C3%A3o-Brasileiro-2019-scaled.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img  src="https://wallpapercave.com/wp/wp4979525.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Section-->
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" >
+      <div class="col mb-5" *ngFor="let products of productList">
+        <div class="card h-100">
+          <!-- Product image-->
+          <img class="card-img-top" src="{{products.productImg}}" alt="..." />
+          <!-- Product details-->
+          <div class="card-body p-4">
+            <div class="text-center">
+              <!-- Product name-->
+              <a routerLink="view-product/{{products.id}}" class="fw-bolder">{{products.productName}}</a>
+              <!-- Product reviews-->
+              <div class="d-flex justify-content-center small text-warning mb-2">
+                <div class="bi-star-fill">*</div>
+                <div class="bi-star-fill">*</div>
+                <div class="bi-star-fill">*</div>
+                <div class="bi-star-fill">*</div>
+                <div class="bi-star-fill">*</div>
+              </div>
+              <!-- Product price-->
+              ${{products.price}}
+            </div>
+          </div>
+          <!-- Product actions-->
+          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-center"><a class="btn btn-outline-dark mt-auto" (click)="addtocart(products)" >Adicionar ao carrinho</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

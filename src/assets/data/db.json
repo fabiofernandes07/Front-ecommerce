@@ -1,0 +1,99 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "productName": "shirt",
+      "categoryId": 1,
+      "description": "description here",
+      "price": 300,
+      "is_avaiable": true,
+      "productImg": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ9G9kA37Xnkn9VXioRPsUJ6xmplRa_nSk7oPWYT4EqXUzeYimjLlOwm_3kSY2U0HuS_QC9qPsJryg&usqp=CAc",
+      "review": "nice"
+    },
+    {
+      "id": 2,
+      "productName": "shirt2",
+      "categoryId": 1,
+      "description": "description here",
+      "price": 300,
+      "is_avaiable": true,
+      "productImg": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTv5JjzrwtTUxGVvXsmiRlzLtSJW56CipBaoiYqEcseRHZK3tH2dvDHy4aeNppU&usqp=CAc",
+      "review": "nice"
+    },
+    {
+      "id": 3,
+      "productName": "shirt3",
+      "categoryId": 1,
+      "description": "description here",
+      "price": 300,
+      "is_avaiable": true,
+      "productImg": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQuxEDtbGpt4TG-xLa1j8Rkfyz3Ev9pFikcuSch_TBZDaRzXGeCtdpCL7sRZO6XMQ&usqp=CAc",
+      "review": "nice"
+    },
+    {
+      "categoryId": "1",
+      "productName": "Camisa Barcelona Pré Jogo",
+      "description": "Visca, Barça! Sinta-se como os craques do time catalão usando a nova Camisa Barcelona Masculina da Nike. Semelhante ao modelo que os atletas usam antes dos jogos da UCL, a peça da temporada 21/22 é confeccionada com tecido leve e respirável, priorizando a liberdade de movimentos e vestindo os boleiros com máximo conforto e estilo.",
+      "price": 300,
+      "productImg": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSSyuZqt1tw0CeySxonG5oSoLNAUvLB4qidttm4V5lsPEiAq2NssnT3deOXEoStSR1eQ02xo-Kg-Q&usqp=CAc",
+      "isAvailble": true,
+      "review": "nice",
+      "id": 4
+    },
+    {
+      "categoryId": "",
+      "productName": "as",
+      "description": "",
+      "price": "",
+      "productImg": "",
+      "isAvailble": true,
+      "review": "nice",
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "timesEuropeus"
+    },
+    {
+      "id": 2,
+      "categoryName": "shorts"
+    },
+    {
+      "id": 3,
+      "categoryName": "meias"
+    },
+    {
+      "id": 4,
+      "categoryName": "selecoes"
+    },
+    {
+      "id": 5,
+      "categoryName": "infantil"
+    },
+    {
+      "id": 6,
+      "categoryName": "timesBrasileiros"
+    },
+    {
+      "id": 7,
+      "categoryName": "nba"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

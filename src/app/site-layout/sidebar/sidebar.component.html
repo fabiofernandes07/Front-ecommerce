@@ -1,0 +1,24 @@
+<!-- <div class="container" style="margin-bottom: 30px;">
+  <nav class="navbar navbar-light navbar-expand-md">
+    <div class="container-fluid"><button data-bs-toggle="collapse" class="navbar-toggler"
+        data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navcol-2" style="display:flex">
+        <ul class="navbar-nav" *ngFor="let catg of categoryList">
+          <li class="nav-item"><a class="nav-link active"  routerLink="products/category/{{catg.id}}">{{catg.description}}</a></li>
+          <li class="nav-item"><a class="nav-link active"  routerLink="products/category/{{catg.id}}">{{catg.description}}</a></li>
+
+        </ul>
+        </div>
+      </div>
+  </nav>
+</div> -->
+
+<div class="list-group" *ngFor="let catg of categoryList">
+  <a style="background-color: #ffffcc" routerLink="products/add-product" class="list-group-item">
+    Adicionar produto
+  </a>
+  <a  routerLink="products/category/{{catg.id}}" class="list-group-item">
+    {{catg.description}}
+  </a>
+</div>

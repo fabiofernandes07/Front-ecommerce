@@ -1,0 +1,39 @@
+<h1>Adicionar novo produto</h1>
+<form  (submit)="addNewProduct(addNewProductForm)" #addNewProductForm="ngForm" class="was-validated row g-3">
+  <div class="col-md-4">
+    <label for="validationServer01" class="form-label">Título</label>
+    <input type="text" class="form-control" id="validationServer01" name="product_name" ngModel required>
+  </div>
+
+  <div class="col-md-3">
+    <label for="validationServer02" class="form-label">Preço</label>
+    <input type="number" class="form-control" id="validationServer02" required name="product_price" ngModel>
+  </div>
+  <div class="col-md-6">
+    <label for="validationServer03" class="form-label">Link da Imagem</label>
+    <input type="text" class="form-control" id="validationServer03" required name="product_img" ngModel>
+  </div>
+  <div class="col-md-3">
+    <label for="validationServer04" class="form-label">Categoria</label>
+    <select class="form-select is-invalid" id="validationServer04" required name="product_category" ngModel>
+      <option value=1>Premier League</option>
+      <option value=2>Brasileirao</option>
+      <option value=3>Meias</option>
+      <option value=4>Outros</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="validationServer05" class="form-label">Descrição</label>
+    <textarea class="form-control" id="validationServer05" required name="product_description" ngModel></textarea>
+  </div>
+  <div class="col-md-1">
+    <label for="validationServer06" class="form-label">Gênero</label>
+    <select class="form-select is-invalid" id="validationServer06" required name="product_category" ngModel>
+      <option value="masculino">Masculino</option>
+      <option value="feminino">Feminino</option>
+    </select>
+  </div>
+  <div style="padding-top: 200px; padding-bottom: 20px;" class="col-12">
+    <button class="btn btn-primary" type="submit">Adicionar produto</button>
+  </div>
+</form>
