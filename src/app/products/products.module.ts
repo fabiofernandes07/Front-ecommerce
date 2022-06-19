@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
@@ -11,6 +12,8 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
 import { ViewAllProductComponent } from './view-all-product/view-all-product.component';
 import { ViewProductByDateComponent } from './view-product-by-date/view-product-by-date.component';
 import { ViewProductByCategoryComponent } from './view-product-by-category/view-product-by-category.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { AddSubCategoryComponent } from './add-sub-category/add-sub-category.component';
 
 
 @NgModule({
@@ -22,12 +25,15 @@ import { ViewProductByCategoryComponent } from './view-product-by-category/view-
     DeleteProductComponent,
     ViewAllProductComponent,
     ViewProductByDateComponent,
-    ViewProductByCategoryComponent
+    ViewProductByCategoryComponent,
+    AddCategoryComponent,
+    AddSubCategoryComponent
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
   ],
   exports: [
     ProductsComponent,

@@ -9,6 +9,7 @@ import { CartService } from 'src/app/cart.service';
 export class CheckoutComponent implements OnInit {
   public products: any = [];
   public grandTotal !: number;
+  Concluir: boolean = true;
 
   constructor(private cartService: CartService) { }
 
@@ -18,6 +19,10 @@ export class CheckoutComponent implements OnInit {
       this.products = res;
       this.grandTotal = this.cartService.getTotalPrice();
     })
+  }
+
+  concluir() {
+    this.Concluir = false;
   }
 
 }

@@ -19,7 +19,7 @@ export class ViewAllProductComponent implements OnInit {
       this.productList = data;
 
       this.productList.forEach((a:any) => {
-        Object.assign(a,{quantity:1,total:a.price});
+        Object.assign(a,{quantity:1,total:a.value});
       });
     })
   }
@@ -27,5 +27,7 @@ export class ViewAllProductComponent implements OnInit {
   addtocart(item: any) {
     this.cartService.addtoCart(item);
   }
+
+
 
 }

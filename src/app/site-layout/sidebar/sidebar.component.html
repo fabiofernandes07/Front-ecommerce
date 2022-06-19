@@ -13,12 +13,19 @@
       </div>
   </nav>
 </div> -->
-
-<div class="list-group" *ngFor="let catg of categoryList">
-  <a style="background-color: #ffffcc" routerLink="products/add-product" class="list-group-item">
-    Adicionar produto
-  </a>
-  <a  routerLink="products/category/{{catg.id}}" class="list-group-item">
-    {{catg.description}}
-  </a>
+<a *ngIf="adm" style="background-color: #ffffcc" routerLink="products/add-product" class="list-group-item">
+  Adicionar produto
+</a>
+<a *ngIf="adm" style="background-color: #ffffcc" routerLink="products/add-category" class="list-group-item">
+  Adicionar Categoria
+</a>
+<a *ngIf="adm" style="background-color: #ffffcc" routerLink="products/add-subcategory" class="list-group-item">
+  Adicionar SubCategoria
+</a>
+<div class="dropdown " *ngFor="let catg of categoryList, let i = index">
+  <button class="dropbtn">{{catg.description}}</button>
+  <div class="dropdown-content">
+    <a href="products/category/{{subCatg.id}}" *ngFor="let subCatg of categoryList[i].subCategs,let j = index">{{subCatg.description}}</a>
+  </div>
 </div>
+

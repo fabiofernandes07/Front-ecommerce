@@ -5,9 +5,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { ViewAllProductComponent } from './products/view-all-product/view-all-product.component';
+import { LoginComponent } from './login/login.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 const routes: Routes = [
-  {path: '', component: ViewAllProductComponent},
+  {path: '', component: LoginComponent},
+  {path: 'cadastro', component: CadastroComponent},
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
   {path: 'order', component:ListOrdersComponent},
   {path: 'cart', component:CartComponent},

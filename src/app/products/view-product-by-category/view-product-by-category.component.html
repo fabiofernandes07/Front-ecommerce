@@ -6,12 +6,12 @@
       <div class="col mb-5" *ngFor="let products of productList">
         <div class="card h-100">
           <!-- Product image-->
-          <img class="card-img-top" src="{{products.productImg}}" alt="..." />
+          <img class="card-img-top" src="http://localhost:8080/{{products.images[0].url}}" alt="..." />
           <!-- Product details-->
           <div class="card-body p-4">
             <div class="text-center">
               <!-- Product name-->
-              <a href="products/view-product/{{products.id}}" class="fw-bolder">{{products.productName}}</a>
+              <a href="products/view-product/{{products.id}}" class="fw-bolder">{{products.title}}</a>
               <!-- Product reviews-->
               <div class="d-flex justify-content-center small text-warning mb-2">
                 <div class="bi-star-fill">*</div>
@@ -21,7 +21,7 @@
                 <div class="bi-star-fill">*</div>
               </div>
               <!-- Product price-->
-              ${{products.price}}
+              ${{products.value}}
             </div>
           </div>
           <!-- Product actions-->

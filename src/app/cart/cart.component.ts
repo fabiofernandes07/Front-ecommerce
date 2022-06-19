@@ -9,23 +9,31 @@ import { Component, OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
 
   public products: any = [];
-  public grandTotal !: number;
+  public grandTotal = 0;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.getProducts()
-    .subscribe(res=>{
-      this.products = res;
-      this.grandTotal = this.cartService.getTotalPrice();
-    })
+    this.products = JSON.parse(this.cartService.getCart());
+    this.products.map((a:any)=>{
+      this.grandTotal += a.total;
+    });
   }
 
-  removeItem(item: any){
-    this.cartService.removeCartItem(item);
+  removeCartItem(product:any) {
+    this.products = JSON.parse(this.cartService.getCart());
+    this.products.map((a:any, index:any)=>{
+      if(product.id === a.id){
+        this.products.splice(index,1);
+      }
+    })
+    localStorage.setItem("cart",JSON.stringify(this.products));
   }
+
 
   emptycart(){
-    this.cartService.removeAllCart();
+    window.location.replace("/products");
+    this.products = []
+    localStorage.setItem("cart",JSON.stringify(this.products));
   }
 }

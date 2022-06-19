@@ -5,9 +5,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-
   public cartItemList : any = []
   public productList = new BehaviorSubject<any>([]);
+  public teste = ""
 
   constructor() { }
   getProducts() {
@@ -20,10 +20,14 @@ export class CartService {
   }
 
   addtoCart(product : any) {
+    // if(this.cartItemList.length == 0) {
+    //   console.log("add");
+    //   this.cartItemList = localStorage.getItem("cart");
+    // }
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice()
-    // console.log(this.cartItemList);
+    localStorage.setItem("cart",JSON.stringify(this.cartItemList));
   }
 
   getTotalPrice() :number{
@@ -35,15 +39,26 @@ export class CartService {
   }
 
   removeCartItem(product:any) {
+    this.cartItemList = localStorage.getItem("cart");
     this.cartItemList.map((a:any, index:any)=>{
       if(product.id === a.id){
         this.cartItemList.splice(index,1);
       }
     })
+    
   }
 
   removeAllCart() {
     this.cartItemList = [];
     this.productList.next(this.cartItemList);
   }
+
+  getCart() {
+    if(localStorage.getItem("cart")){
+      this.cartItemList = localStorage.getItem("cart");
+
+    return this.cartItemList
+    }
+  }
+
 }

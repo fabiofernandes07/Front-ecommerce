@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
+import { DropComponent } from './sidebar/drop/drop.component';
 
 
 
@@ -11,7 +12,8 @@ import {RouterModule} from '@angular/router';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    DropComponent
   ],
   imports: [
     CommonModule,

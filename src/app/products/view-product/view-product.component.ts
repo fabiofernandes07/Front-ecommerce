@@ -12,21 +12,31 @@ export class ViewProductComponent implements OnInit {
   searchId:any;
   productData:any;
   quantity:number = 1;
+  listSize:any;
+  constructor( private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService) {
 
-  constructor( private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
+   }
 
   ngOnInit(): void {
+
     this.activatedRoute.params.subscribe(data => {
       this.searchId = data.id;
 
+      this.productService.getSize().subscribe(sizeData =>{
+        this.listSize=sizeData;
+      });
       this.productService.Product(this.searchId).subscribe(categoryData => {
         this.productData = categoryData;
-        this.productData = {...this.productData, quantity:1,total:categoryData.price }
+        this.productData = {...this.productData, quantity:1,total:categoryData.value }
+        // console.log(this.productData);
 
       })
+
     })
   }
   addtocart(item: any) {
     this.cartService.addtoCart(item);
   }
+
+
 }

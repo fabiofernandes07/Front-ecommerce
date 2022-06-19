@@ -8,10 +8,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products.component';
 import { ViewProductByDateComponent } from './view-product-by-date/view-product-by-date.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { AddSubCategoryComponent } from './add-sub-category/add-sub-category.component';
 
 const routes: Routes = [
   { path: '', component: ViewAllProductComponent },
   { path: 'add-product', component: AddProductComponent },
+  { path: 'add-category', component: AddCategoryComponent },
+  { path: 'add-subcategory', component: AddSubCategoryComponent },
   // {path : 'list-product', component: ViewAllProductComponent},
   { path: 'category/:id', component: ViewProductByCategoryComponent },
   { path: 'search-date', component: ViewProductByDateComponent },

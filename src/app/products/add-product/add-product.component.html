@@ -1,8 +1,8 @@
 <h1>Adicionar novo produto</h1>
-<form  (submit)="addNewProduct(addNewProductForm)" #addNewProductForm="ngForm" class="was-validated row g-3">
+<form  (submit)="addNewProduct(addNewProductForm)" #addNewProductForm="ngForm" class="was-validated row g-3" enctype="multipart/form-data">
   <div class="col-md-4">
     <label for="validationServer01" class="form-label">Título</label>
-    <input type="text" class="form-control" id="validationServer01" name="product_name" ngModel required>
+    <input type="text" class="form-control" id="validationServer01" name="product_name"  required ngModel>
   </div>
 
   <div class="col-md-3">
@@ -10,16 +10,19 @@
     <input type="number" class="form-control" id="validationServer02" required name="product_price" ngModel>
   </div>
   <div class="col-md-6">
-    <label for="validationServer03" class="form-label">Link da Imagem</label>
-    <input type="text" class="form-control" id="validationServer03" required name="product_img" ngModel>
+    <label for="validationServer03" class="form-label">Arquivo de Imagem</label>
+    <input (change)="getFile($event)" type="file" class="form-control" id="validationServer03" required name="product_img" multiple ngModel>
   </div>
   <div class="col-md-3">
     <label for="validationServer04" class="form-label">Categoria</label>
-    <select class="form-select is-invalid" id="validationServer04" required name="product_category" ngModel>
-      <option value=1>Premier League</option>
-      <option value=2>Brasileirao</option>
-      <option value=3>Meias</option>
-      <option value=4>Outros</option>
+    <select (change)="getCateg($event)" class="form-select is-invalid" id="validationServer04"  name="product_category" required ngModel>
+      <option *ngFor="let catg of categoryList"  value={{catg.id}}>{{catg.description}}</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <label for="validationServer07" class="form-label">Sub-Categoria</label>
+    <select class="form-select is-invalid" id="validationServer07"  name="product_subcategory" required ngModel>
+      <option *ngFor="let subCatg of subCategoryList"  value={{subCatg.id}} >{{subCatg.description}}</option>
     </select>
   </div>
   <div class="col-md-6">
@@ -28,9 +31,9 @@
   </div>
   <div class="col-md-1">
     <label for="validationServer06" class="form-label">Gênero</label>
-    <select class="form-select is-invalid" id="validationServer06" required name="product_category" ngModel>
-      <option value="masculino">Masculino</option>
-      <option value="feminino">Feminino</option>
+    <select class="form-select is-invalid" id="validationServer06" required name="product_gender" ngModel>
+      <option value="MASCULINO">Masculino</option>
+      <option value="FEMININO">Feminino</option>
     </select>
   </div>
   <div style="padding-top: 200px; padding-bottom: 20px;" class="col-12">

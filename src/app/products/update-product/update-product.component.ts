@@ -14,7 +14,7 @@ export class UpdateProductComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data=>{
       this.productID = data.id;
-      console.log(this.productID);
+      // console.log(this.productID);
     })
   }
 }

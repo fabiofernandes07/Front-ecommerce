@@ -1,7 +1,6 @@
 import { Category } from './../categories';
 import { ProductService } from './../../products/product.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,14 +9,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
   categoryList: any;
-  searchRote:any;
-  constructor(private productsService : ProductService,private activatedRoute: ActivatedRoute) { }
+  subCategoryList: any;
+  adm : boolean = true;
+  id: any;
+  constructor(private productsService : ProductService) { }
 
   ngOnInit(): void {
-    
-
-    this.productsService.getCategory().subscribe(data =>{
+    this.productsService.getCategory().subscribe(async data =>{
       this.categoryList = data;
+
+      this.categoryList = await Promise.all(this.categoryList.map(async(categ:any)=>{
+        this.subCategoryList = await this.productsService.getSubCategory(categ.id).toPromise()
+        // console.log(this.subCategoryList)
+        return {
+          ...categ,subCategs:this.subCategoryList
+        }
+      }))
+      // console.log(this.categoryList);
+
     })
   }
 

@@ -19,14 +19,14 @@ export class ViewProductByCategoryComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data => {
       this.searchCategory = data.id;
-      console.log(this.searchCategory);
+      // console.log(this.searchCategory);
 
       this.productService.searchCategoryProduct(this.searchCategory).subscribe(categoryData => {
         this.productList = categoryData;
-        console.log(this.productList);
+        // console.log(this.productList);
 
         this.productList.forEach((a:any) => {
-          Object.assign(a,{quantity:1,total:a.price});
+          Object.assign(a,{quantity:1,total:a.value});
         });
 
       })
