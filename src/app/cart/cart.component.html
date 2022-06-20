@@ -1,5 +1,5 @@
 <ng-container *ngIf="products.length > 0">
-  <div class="contaiver">
+  <div class="container">
     <div class="card-table">
       <div class="cart-product">
         <table class="table table-responsive">
@@ -10,6 +10,8 @@
               <th>Descrição</th>
               <th>Preço</th>
               <th>Quantidade</th>
+              <th>Nome</th>
+              <th>Número</th>
               <th>Total</th>
               <th>Ação</th>
             </tr>
@@ -21,6 +23,8 @@
               <td>{{item.description}}</td>
               <td>{{item.value}}</td>
               <td>{{item.quantity}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.number}}</td>
               <td>{{item.quantity*item.value}}</td>
               <td>
                 <button (click)="removeCartItem(item)" class="btn btn-danger">Remover</button>
