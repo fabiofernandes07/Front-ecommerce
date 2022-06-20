@@ -1,9 +1,10 @@
-<nav class="navbar navbar-light navbar-expand-md" style="background-color: black">
+<nav *ngIf="role == 'ADM' || role == 'CLIENTE'" class="navbar navbar-light navbar-expand-md"
+  style="background-color: black">
   <div class="container"><a class="navbar-brand" href="#"></a><button class="navbar-toggler" data-bs-toggle="collapse"
       data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span>
       <span class="navbar-toggler-icon"></span></button>
     <div class="input-group" style="padding-top: 0;height: 100%;position: relative;">
-      <a  class="nav-item nav-link active" routerLink="products">Inicio</a>
+      <a class="nav-item nav-link active" routerLink="products">Inicio</a>
       <input class="form-control" type="text" style="background-color: #fff;
   height: 100%;
   border: none;
@@ -17,6 +18,13 @@
       <ul class="navbar-nav">
         <li class="nav-item"></li>
       </ul><a class="btn btn-primary ms-auto" role="button" routerLink="cart">Ver carrinho</a>
+    </div>
+  </div>
+  <div  class="dropdown " >
+    <button class="dropbtn">{{user}}</button>
+    <div class="dropdown-content">
+      <a href="/pedidos">Pedidos</a>
+      <a (click)="reload()">Logout</a>
     </div>
   </div>
 </nav>

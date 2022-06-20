@@ -10,7 +10,7 @@
             <div>
               <h6 class="my-0">{{item.title}}</h6>
             </div>
-            <span class="text-muted">R$:{{item.price}}</span>
+            <span class="text-muted">R$:{{item.value}}</span>
           <li class="list-group-item d-flex justify-content-between">
             <span>Total (BRL)</span>
             <strong>R$:{{grandTotal}},00</strong>
@@ -24,13 +24,22 @@
           </div>
         </form>
       </div>
+
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Endereço</h4>
-        <form class="needs-validation" novalidate>
+
+
+          <div class="col-md-3">
+            <label for="validationServer04" class="form-label">Enderecos: </label>
+            <select (change)="changeAdress()" class="form-select" id="validationServer04"   required [(ngModel)]="enderecos">
+              <option *ngFor="let adress of adressList" value={{adress.id}}>{{adress.street}}</option>
+            </select>
+          </div>
+
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Nome</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <input type="text" class="form-control" id="firstName" placeholder="" required>
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
@@ -38,61 +47,48 @@
 
             <div class="col-sm-6">
               <label for="lastName" class="form-label">Sobrenome</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <input type="text" class="form-control" id="lastName" placeholder=""  required>
               <div class="invalid-feedback">
                 Valid last name is required.
               </div>
             </div>
 
-            <div class="col-12">
-              <label for="username" class="form-label">Usuario</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
-              <div class="invalid-feedback">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="address" class="form-label">Endereço</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="address2" class="form-label">Endereço 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-            </div>
-
-            <div class="col-md-5">
+            <div style="display: flex; flex-direction: column; margin-top: 5px;" class="col-md-5">
               <label for="country" class="form-label">Estado</label>
-              <select class="form-select" id="country" required>
-                <option value="">Selecionar</option>
-                <option>Paraiba</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
+              <select style="border-radius:5px; height: 30px;" class="form-select is-invalid" id="validationServer04" type="text"  name="estado" required [(ngModel)]="estado">
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+                </select>
             </div>
 
             <div class="col-md-4">
-              <label for="state" class="form-label">Cidade</label>
-              <select class="form-select" id="state" required>
-                <option value="">Selecionar</option>
-                <option>Joao Pessoa</option>
-              </select>
+              <label for="cidade" class="form-label">Cidade</label>
+              <input type="email" class="form-control" id="cidade"  required [(ngModel)]="cidade">
               <div class="invalid-feedback">
                 Please provide a valid state.
               </div>
@@ -100,16 +96,45 @@
 
             <div class="col-md-3">
               <label for="zip" class="form-label">CEP</label>
-              <input type="text" class="form-control" id="zip" placeholder="" required>
+              <input type="text" class="form-control" id="zip" placeholder="" required [(ngModel)]="cep">
               <div class="invalid-feedback">
                 Zip code required.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="rua" class="form-label">Rua</label>
+              <input type="text" class="form-control" id="rua" required [(ngModel)]="rua">
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="bairro" class="form-label">Bairro</label>
+              <input type="text" class="form-control" id="bairro" required [(ngModel)]="bairro">
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="numero" class="form-label">Número</label>
+              <input type="text" class="form-control" id="numero" required [(ngModel)]="numero">
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="complemento" class="form-label">Complemento</label>
+              <input type="text" class="form-control" id="complemento" required [(ngModel)]="complemento">
+              <div class="invalid-feedback">
+                Please enter your shipping address.
               </div>
             </div>
           </div>
 
           <hr class="my-4">
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
+            <input type="checkbox" class="form-check-input" id="save-info" [(ngModel)]="check">
             <label class="form-check-label" for="save-info">Salve as informações para o proximo pedido</label>
           </div>
 
@@ -119,15 +144,15 @@
 
           <div class="my-3">
             <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input"  required value="credit" [(ngModel)]="credito">
               <label class="form-check-label" for="credit">Cartão de credito</label>
             </div>
             <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+              <input id="debit" name="paymentMethod" type="radio" class="form-check-input"  required value="debit" [(ngModel)]="debito">
               <label class="form-check-label" for="debit">Cartão de debito</label>
             </div>
             <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" value="paypal" required [(ngModel)]="paypal">
               <label class="form-check-label" for="paypal">PayPal</label>
             </div>
           </div>
@@ -169,8 +194,8 @@
 
           <hr class="my-4">
 
-          <button (click)="concluir()" class="w-100 btn btn-primary btn-lg"  type="submit">Finalizar pedido</button>
-        </form>
+          <button (click)="addAdress()"  (click)="addSale()" (click)="concluir()" style="margin-bottom: 5px;"  class="w-100 btn btn-primary btn-lg" >Finalizar pedido</button>
+
       </div>
     </div>
   </main>

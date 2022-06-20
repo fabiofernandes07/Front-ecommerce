@@ -20,12 +20,7 @@ export class CartService {
   }
 
   addtoCart(product : any) {
-    // if(this.cartItemList.length == 0) {
-    //   console.log("add");
-    //   this.cartItemList = localStorage.getItem("cart");
-    // }
     this.cartItemList = JSON.parse(localStorage.getItem("cart") || '')
-    console.log(product)
     const alreadyExist = this.cartItemList.filter((item: any) => {
       if(item.id === product.id && item.sizeId === product.sizeId && item.name === product.name && item.number === product.number) {
         item.quantity += 1;
@@ -37,18 +32,20 @@ export class CartService {
     console.log(alreadyExist);
     if(alreadyExist.length === 0){
       this.cartItemList.push(product);
-      this.productList.next(this.cartItemList);  
+      this.productList.next(this.cartItemList);
     }
-    this.getTotalPrice()
 
+    console.log(this.cartItemList)
     console.log(localStorage.getItem("cart"))
     localStorage.setItem("cart",JSON.stringify(this.cartItemList));
     console.log(localStorage.getItem("cart"))
-    
-    
+    this.getTotalPrice()
+
+
   }
 
   getTotalPrice() :number{
+    this.cartItemList = JSON.parse(localStorage.getItem("cart") || '');
     let grandTotal = 0;
     this.cartItemList.map((a:any)=>{
       grandTotal += a.total;

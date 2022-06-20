@@ -16,7 +16,8 @@ export class SidebarComponent implements OnInit {
   constructor(private productsService : ProductService) { }
 
   ngOnInit(): void {
-    const role = JSON.parse(localStorage.getItem('user') || '').user.role;
+    const role = JSON.parse(localStorage.getItem('user') || JSON.stringify({user:{role:""}})).user.role;
+    console.log(role);
     this.role = role;
     this.productsService.getCategory().subscribe(async data =>{
       this.categoryList = data;
@@ -28,9 +29,7 @@ export class SidebarComponent implements OnInit {
           ...categ,subCategs:this.subCategoryList
         }
       }))
-      // console.log(this.categoryList);
-
+      console.log(this.categoryList);
     })
   }
-
 }

@@ -47,6 +47,7 @@ export class CadastroComponent implements OnInit {
     }).subscribe(data =>{
       console.log(data);
     })
+    // window.location.href = "http://localhost:4200"
   }
 
 }

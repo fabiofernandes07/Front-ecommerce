@@ -1,3 +1,4 @@
+import { PedidosComponent } from './pedidos/pedidos.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { ListOrdersComponent } from './orders/list-orders/list-orders.component';
 import { HomeComponent } from './home/home.component';
@@ -11,6 +12,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'cadastro', component: CadastroComponent},
+  {path: 'pedidos', component: PedidosComponent},
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
   {path: 'order', component:ListOrdersComponent},
   {path: 'cart', component:CartComponent},

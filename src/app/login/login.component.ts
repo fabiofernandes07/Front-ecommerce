@@ -13,7 +13,8 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
-    
+    localStorage.clear();
+   
   }
 
   login(form: any) {
@@ -22,8 +23,9 @@ export class LoginComponent implements OnInit {
     this.loginService.login({ email: this.email, password: this.password}).subscribe(data => {
       console.log(data)
       this.user = data
+      localStorage.setItem('cart',JSON.stringify([]));
       localStorage.setItem('user', JSON.stringify(this.user));
-      window.location.href = "http://localhost:4200/products";
+      window.location.replace("/products");
     });
   }
 

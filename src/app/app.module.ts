@@ -18,6 +18,7 @@ import { OrdersModule } from './orders/orders.module';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     SucessComponent,
     CheckoutComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,

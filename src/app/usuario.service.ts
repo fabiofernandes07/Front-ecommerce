@@ -13,4 +13,20 @@ export class UsuarioService {
     return this.HttpClient.post<any>(baseUrl, user);
   }
 
+  addAdress(adress:any): Observable<any> {
+    const baseUrl="http://localhost:8080/api/v1/adresses";
+    return this.HttpClient.post<any>(baseUrl, adress);
+  }
+
+  addSale(sale:any): Observable<any> {
+    const baseUrl="http://localhost:8080/api/v1/sales";
+    return this.HttpClient.post<any>(baseUrl, sale);
+  }
+
+  getSales(saleUser: any): Observable<any> {
+    const baseUrl="http://localhost:8080/api/v1/sales?userId="+saleUser;
+    return this.HttpClient.get(baseUrl);
+  }
+
+
 }
