@@ -33,6 +33,11 @@ export class UsuarioService {
     return this.HttpClient.get(baseUrl);
   }
 
+  updateTracking(tracking:any,deliveryId:any): Observable<any> {
+    const baseUrl="http://localhost:8080/api/v1/sales/"+deliveryId;
+    return this.HttpClient.patch<any>(baseUrl,tracking);
+
+  }
 
 
 }

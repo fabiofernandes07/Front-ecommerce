@@ -1,3 +1,4 @@
+import { UsuarioService } from './../usuario.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef,  MAT_DIALOG_DATA  } from '@angular/material/dialog';
 
@@ -8,11 +9,12 @@ import { MatDialog, MatDialogRef,  MAT_DIALOG_DATA  } from '@angular/material/di
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-
-  rastrio:any;
+  idDelivery: any;
+  rastreio:any;
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    public userService: UsuarioService,
     ) { }
 
   ngOnInit(): void {
@@ -20,5 +22,11 @@ export class ModalComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+
+  }
+
+  updateTracking(){
+    this.userService.updateTracking({tracking:this.rastreio},this.idDelivery).subscribe();
+    console.log(this.rastreio,this.idDelivery);
   }
 }

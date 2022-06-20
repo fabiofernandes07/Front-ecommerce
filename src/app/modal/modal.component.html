@@ -1,7 +1,11 @@
 <h1 mat-dialog-title style="background-color: #2d74ca; color:white">id:{{data.id}} Codigo de Rastreio</h1>
-<div mat-dialog-content>
-  <input type="text" name="rastreio"  [(ngModel)]="rastrio">
+<div style="display: flex; flex-direction: column;" mat-dialog-content>
+  <input type="text" name="rastreio"  [(ngModel)]="rastreio">
+  <div>
+    <input style="margin-right: 5px;"  type="radio" name="" value="{{data.delivery.id}}" checked [(ngModel)]="idDelivery">
+    <label for="">clique para confirmar</label>
+  </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Enviar</button>
+  <button (click)="updateTracking()" mat-button mat-dialog-close>Enviar</button>
 </div>
