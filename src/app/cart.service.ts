@@ -58,11 +58,14 @@ export class CartService {
   removeCartItem(product:any) {
     this.cartItemList = localStorage.getItem("cart");
     this.cartItemList.map((a:any, index:any)=>{
-      if(product.id === a.id){
+      if(product.id === a.id && a.quantity === 1){
         this.cartItemList.splice(index,1);
+      }else if(product.id === a.id){
+        a.quantity -= 1;
+        a.total = a.value * a.quantity;
       }
     })
-    
+    this.getTotalPrice();
   }
 
   removeAllCart() {
