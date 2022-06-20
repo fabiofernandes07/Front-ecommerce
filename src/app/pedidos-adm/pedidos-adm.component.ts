@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ModalComponent } from '../modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -23,8 +25,12 @@ export class PedidosAdmComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  openDialog(row: any) {
+    console.log('Row clicked', row);
+    const dialog = this.dialog.open(ModalComponent,{data:row})
+  }
 
-  constructor( private userService: UsuarioService) { }
+  constructor( private userService: UsuarioService, private dialog: MatDialog) {}
 
 
   ngOnInit(): void {
