@@ -17,17 +17,17 @@
                   </button>
                   <div class="col-md-3">
                     <label for="validationServer07" class="form-label">Tamanho</label>
-                    <select  class="form-select is-invalid" id="validationServer07"  name="product_size" required [(ngModel)]="sizeId">
+                    <select  class="form-select" id="validationServer07"  name="product_size" required [(ngModel)]="sizeId">
                       <option *ngFor="let size of listSize"  value={{size.id}} >{{size.description}}</option>
                     </select>
                   </div>
                   <div class="col-md-3">
                     <label for="validationServer07" class="form-label">Número</label>
-                    <input class="form-control" type="text" required>
+                    <input class="form-control" type="text" required  [(ngModel)]="number">
                   </div>
                   <div class="col-md-3">
                     <label for="validationServer07" class="form-label">Nome</label>
-                    <input class="form-control input" type="text" required>
+                    <input class="form-control input" type="text" required  [(ngModel)]="name">
                   </div>
               </div>
           </div>

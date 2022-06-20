@@ -14,12 +14,14 @@ export class ViewProductComponent implements OnInit {
   sizeId: any
   quantity:number = 1;
   listSize:any;
+  name: any;
+  number: any;
   constructor( private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService) {
 
    }
 
   ngOnInit(): void {
-    
+
     this.activatedRoute.params.subscribe(data => {
       this.searchId = data.id;
 
@@ -34,7 +36,7 @@ export class ViewProductComponent implements OnInit {
     })
   }
   addtocart(item: any) {
-    this.cartService.addtoCart({...item, sizeId: this.sizeId});
+    this.cartService.addtoCart({...item, sizeId: this.sizeId, name: this.name, number: this.number});
   }
 
 
