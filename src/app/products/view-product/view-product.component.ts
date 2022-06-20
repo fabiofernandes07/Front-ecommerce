@@ -16,6 +16,7 @@ export class ViewProductComponent implements OnInit {
   listSize:any;
   name: any;
   number: any;
+  sizeDesc: any;
   constructor( private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService) {
 
    }
@@ -36,8 +37,13 @@ export class ViewProductComponent implements OnInit {
     })
   }
   addtocart(item: any) {
-    this.cartService.addtoCart({...item, sizeId: this.sizeId, name: this.name, number: this.number});
-  }
+    const size = this.listSize.find((element:any) => element.id == this.sizeId);
+    this.cartService.addtoCart({...item,sizeDesc: size.description, sizeId: this.sizeId, name: this.name, number: this.number});
 
+  }
+  getSizeDesc(value:any){
+    this.sizeDesc = value;
+    console.log(this.sizeDesc);
+  }
 
 }
