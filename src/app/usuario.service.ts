@@ -28,5 +28,11 @@ export class UsuarioService {
     return this.HttpClient.get(baseUrl);
   }
 
+  getAllSales() {
+    const baseUrl="http://localhost:8080/api/v1/sales";
+    return this.HttpClient.get(baseUrl);
+  }
+
+
 
 }

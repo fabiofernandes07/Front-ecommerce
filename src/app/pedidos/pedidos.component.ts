@@ -1,3 +1,4 @@
+import { UsuarioService } from './../usuario.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pedidos.component.scss']
 })
 export class PedidosComponent implements OnInit {
-
-  constructor() { }
+  salesList: any;
+  userId: any
+  constructor(private userService : UsuarioService) { }
 
   ngOnInit(): void {
+    this.getSales();
   }
+
+  getSales() {
+    const user = JSON.parse(localStorage.getItem('user') || '').user.id
+
+    this.userService.getSales(user).subscribe((data:any) => {
+      this.salesList = data;
+      console.log(this.salesList)
+    })
+  }
+
 
 }
