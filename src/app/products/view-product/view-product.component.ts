@@ -38,6 +38,10 @@ export class ViewProductComponent implements OnInit {
   }
   addtocart(item: any) {
     const size = this.listSize.find((element:any) => element.id == this.sizeId);
+    if(this.name || this.number){
+      item.total += 20;
+      item.value += 20;
+    } 
     this.cartService.addtoCart({...item,sizeDesc: size.description, sizeId: this.sizeId, name: this.name, number: this.number});
 
   }

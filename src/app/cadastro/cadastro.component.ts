@@ -12,6 +12,7 @@ export class CadastroComponent implements OnInit {
   nome:string="";
   sobrenome:any;
   email:any;
+  senha:any;
   numTelefone:any;
   genero:any;
   estado:any;
@@ -32,6 +33,8 @@ export class CadastroComponent implements OnInit {
       name:this.nome,
       lastName: this.sobrenome,
       email: this.email,
+      secret: this.senha,
+      role: 'CLIENTE',
       phone: this.numTelefone,
       gender: this.genero,
       state: this.estado,

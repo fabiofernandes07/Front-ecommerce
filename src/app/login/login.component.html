@@ -1,17 +1,17 @@
 <body class="text-center">
 
   <main class="form-signin w-100 m-auto">
-    <form>
-      <img class="mb-4" src="" alt="" width="72" height="57">
+    <form (submit)="login(loginForm)" #loginForm="ngForm" style="display: flex; flex-direction:column; align-items:center;">
+      <img class="mb-4" src="http://localhost:8080/api/data/logo-ourclub.jpg" alt="" width="90" height="90">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="emailInput" required ngModel>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="passwordInput" required ngModel>
       </div>
 
       <div class="checkbox mb-3">
@@ -19,8 +19,8 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button routerLink="/products" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-      <button routerLink="/cadastro" class="w-100 btn btn-lg btn-primary" >Criar conta</button>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" style="margin-bottom: 15px; max-width: 200px;">Login</button>
+      <button routerLink="/cadastro" class="w-100 btn btn-lg btn-primary" style="margin-bottom: 15px; max-width: 200px;">Criar conta</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
     </form>
   </main>

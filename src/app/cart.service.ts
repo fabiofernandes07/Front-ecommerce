@@ -27,11 +27,12 @@ export class CartService {
     this.cartItemList = JSON.parse(localStorage.getItem("cart") || '')
     console.log(product)
     const alreadyExist = this.cartItemList.filter((item: any) => {
-      if(item.id === product.id){
+      if(item.id === product.id && item.sizeId === product.sizeId && item.name === product.name && item.number === product.number) {
         item.quantity += 1;
         item.total = item.value * item.quantity;
       }
-      return item.id === product.id
+      console.log(item.name + '   ' + product.name)
+      return item.id === product.id && item.sizeId === product.sizeId && item.name === product.name && item.number === product.number
     });
     console.log(alreadyExist);
     if(alreadyExist.length === 0){
@@ -56,16 +57,19 @@ export class CartService {
   }
 
   removeCartItem(product:any) {
-    this.cartItemList = localStorage.getItem("cart");
+    this.cartItemList = JSON.parse(localStorage.getItem("cart") || '');
     this.cartItemList.map((a:any, index:any)=>{
-      if(product.id === a.id && a.quantity === 1){
+
+      console.log(a.quantity)
+      if(product.id === a.id && a.quantity === 1 && a.sizeId === product.sizeId && a.name === product.name && a.number === product.number){
         this.cartItemList.splice(index,1);
-      }else if(product.id === a.id){
+      }else if(product.id === a.id && a.sizeId === product.sizeId && a.name === product.name && a.number === product.number){
         a.quantity -= 1;
         a.total = a.value * a.quantity;
+        console.log(a)
       }
     })
-    this.getTotalPrice();
+    localStorage.setItem("cart",JSON.stringify(this.cartItemList));
   }
 
   removeAllCart() {
@@ -74,11 +78,7 @@ export class CartService {
   }
 
   getCart() {
-    if(localStorage.getItem("cart")){
-      this.cartItemList = localStorage.getItem("cart");
-
-    return this.cartItemList
-    }
+    return JSON.parse(localStorage.getItem("cart") || '');
   }
 
 }

@@ -13,13 +13,13 @@
       </div>
   </nav>
 </div> -->
-<a *ngIf="adm" style="background-color: #ffffcc" routerLink="products/add-product" class="list-group-item">
+<a *ngIf="role=='ADM'" style="background-color: #ffffcc" routerLink="products/add-product" class="list-group-item">
   Adicionar produto
 </a>
-<a *ngIf="adm" style="background-color: #ffffcc" routerLink="products/add-category" class="list-group-item">
+<a *ngIf="role=='ADM'" style="background-color: #ffffcc" routerLink="products/add-category" class="list-group-item">
   Adicionar Categoria
 </a>
-<a *ngIf="adm" style="background-color: #ffffcc" routerLink="products/add-subcategory" class="list-group-item">
+<a *ngIf="role=='ADM'" style="background-color: #ffffcc" routerLink="products/add-subcategory" class="list-group-item">
   Adicionar SubCategoria
 </a>
 <div class="dropdown " *ngFor="let catg of categoryList, let i = index">

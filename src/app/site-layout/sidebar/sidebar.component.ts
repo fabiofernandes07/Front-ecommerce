@@ -11,10 +11,13 @@ export class SidebarComponent implements OnInit {
   categoryList: any;
   subCategoryList: any;
   adm : boolean = true;
+  role: any;
   id: any;
   constructor(private productsService : ProductService) { }
 
   ngOnInit(): void {
+    const role = JSON.parse(localStorage.getItem('user') || '').user.role;
+    this.role = role;
     this.productsService.getCategory().subscribe(async data =>{
       this.categoryList = data;
 
