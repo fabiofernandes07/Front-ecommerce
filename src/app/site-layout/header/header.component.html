@@ -21,7 +21,7 @@
       <ul class="navbar-nav">
         <li class="nav-item"></li>
       </ul>
-      <a class="btn btn-primary ms-auto" role="button" routerLink="pedidos-adm">Ver pedidos</a>
+      <a *ngIf="role == 'ADM' " class="btn btn-primary ms-auto" role="button" routerLink="pedidos-adm">Ver pedidos</a>
     </div>
   </div>
   <div  class="dropdown " >
