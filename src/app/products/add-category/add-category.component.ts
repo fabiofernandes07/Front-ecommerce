@@ -21,7 +21,7 @@ export class AddCategoryComponent implements OnInit {
     this.Category  = category;
 
     this.productService.createCategory({description: this.Category}).subscribe(data =>{
-        console.log(data);
+        window.location.reload();
       })
   }
 

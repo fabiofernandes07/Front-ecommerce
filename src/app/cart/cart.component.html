@@ -20,8 +20,8 @@
               <td><img style="width: 120px;" src="http://localhost:8080/{{item.images[0].url}}" alt="imagem do produto"></td>
               <td>{{item.description}}</td>
               <td>{{item.value}}</td>
-              <td>1</td>
-              <td>1</td>
+              <td>{{item.quantity}}</td>
+              <td>{{item.quantity*item.value}}</td>
               <td>
                 <button (click)="removeCartItem(item)" class="btn btn-danger">Remover</button>
               </td>

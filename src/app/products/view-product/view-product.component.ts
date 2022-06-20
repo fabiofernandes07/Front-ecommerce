@@ -11,6 +11,7 @@ import { ProductService } from '../product.service';
 export class ViewProductComponent implements OnInit {
   searchId:any;
   productData:any;
+  sizeId: any
   quantity:number = 1;
   listSize:any;
   constructor( private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService) {
@@ -18,7 +19,7 @@ export class ViewProductComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
+    
     this.activatedRoute.params.subscribe(data => {
       this.searchId = data.id;
 
@@ -27,15 +28,13 @@ export class ViewProductComponent implements OnInit {
       });
       this.productService.Product(this.searchId).subscribe(categoryData => {
         this.productData = categoryData;
-        this.productData = {...this.productData, quantity:1,total:categoryData.value }
-        // console.log(this.productData);
-
+        this.productData = {...this.productData, quantity:1, total:categoryData.value }
       })
 
     })
   }
   addtocart(item: any) {
-    this.cartService.addtoCart(item);
+    this.cartService.addtoCart({...item, sizeId: this.sizeId});
   }
 
 
