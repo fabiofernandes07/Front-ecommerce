@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   role: any
   user : any;
+  busca: any;
   constructor(private CartService: CartService) { }
 
   ngOnInit(): void {
@@ -20,4 +21,10 @@ export class HeaderComponent implements OnInit {
   reload() {
     window.location.href = "http://localhost:4200/"
   }
+
+  search() {
+    localStorage.setItem('search', this.busca);
+    window.location.href = "http://localhost:4200/products/search-product-name";
+  }
+
 }

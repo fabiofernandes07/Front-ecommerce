@@ -38,6 +38,12 @@ export class ProductService {
     const baseUrl="http://localhost:8080/api/v1/products/"+categoryId;
     return this.HttpClient.get<Product>(baseUrl);
   }
+
+  getProductByName(name:any ): Observable<Product>{
+    const baseUrl="http://localhost:8080/api/v1/products?title="+name;
+    return this.HttpClient.get<Product>(baseUrl);
+  }
+  
   searchDateProduct(dateParam: any): Observable<Product> {
     const baseUrl="http://localhost:3000/product/date="+dateParam;
     return this.HttpClient.get<Product>(baseUrl);

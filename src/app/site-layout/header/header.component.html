@@ -5,12 +5,9 @@
       <span class="navbar-toggler-icon"></span></button>
     <div class="input-group" style="padding-top: 0;height: 100%;position: relative;">
       <a class="nav-item nav-link active" routerLink="products">Inicio</a>
-      <input class="form-control" type="text" style="background-color: #fff;
-  height: 100%;
-  border: none;
-  font-size: 14;border:0;border-bottom-left-radius: 100px;border-top-left-radius: 100px;
-                                                         " />
-      <button type="submit"
+      <input class="form-control" type="text" style="background-color: #fff;height: 100%;border: none;font-size: 14;border:0;border-bottom-left-radius: 100px;border-top-left-radius: 100px;"
+      [(ngModel)]="busca"/>
+      <button (click)="search()" type="submit"
         style="background-color: #ddd; border-top-right-radius: 100px; border-bottom-right-radius: 100px; color: #13abe1; top: 0px;border:0;width:40px;height: 34px;"><i
           class="fa fa-search" style="color:#000"></i></button>
     </div>
