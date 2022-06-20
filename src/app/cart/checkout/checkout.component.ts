@@ -83,8 +83,7 @@ export class CheckoutComponent implements OnInit {
 
     let desc = ""
     this.products.forEach((product:any)=> {
-      desc += product.quantity + 'x      ' + product.title + '\n'
-
+      desc += `${product.quantity}x   ${product.title} ${product.sizeDesc} ${product.name ? product.name : ''} ${product.number ? product.number : ''}\n`
     })
     console.log(this.credito + this.debito + this.paypal)
     this.userService.addSale({

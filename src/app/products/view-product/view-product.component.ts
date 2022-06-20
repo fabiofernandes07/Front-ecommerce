@@ -41,7 +41,11 @@ export class ViewProductComponent implements OnInit {
     if(this.name || this.number){
       item.total += 20;
     }
-    this.cartService.addtoCart({...item,sizeDesc: size.description, sizeId: this.sizeId, name: this.name, number: this.number, personValue: 20});
+    let flag = false;
+    if(this.name || this.number){
+      flag = true;
+    }
+    this.cartService.addtoCart({...item,sizeDesc: size.description, sizeId: this.sizeId, name: this.name, number: this.number, personValue: flag ? 20 : 0});
 
   }
   getSizeDesc(value:any){

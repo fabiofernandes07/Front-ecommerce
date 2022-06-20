@@ -21,7 +21,7 @@
               <td>{{item.title}}</td>
               <td><img style="width: 120px;" src="http://localhost:8080/{{item.images[0].url}}" alt="imagem do produto"></td>
               <td>{{item.sizeDesc}}</td>
-              <td>{{item.value}} + {{item.personValue}}</td>
+              <td>{{item.value}} {{item.personValue ? + item.personValue : ''}}</td>
               <td>{{item.name}}</td>
               <td>{{item.number}}</td>
               <td>{{item.quantity}}</td>
