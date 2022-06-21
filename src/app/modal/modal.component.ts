@@ -28,5 +28,6 @@ export class ModalComponent implements OnInit {
   updateTracking(){
     this.userService.updateTracking({tracking:this.rastreio},this.idDelivery).subscribe();
     console.log(this.rastreio,this.idDelivery);
+    window.location.reload();
   }
 }

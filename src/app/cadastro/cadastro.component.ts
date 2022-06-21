@@ -46,6 +46,7 @@ export class CadastroComponent implements OnInit {
       complement: this.complemento
     }).subscribe(data =>{
       console.log(data);
+      window.location.href = '/';
     })
     // window.location.href = "http://localhost:4200"
   }

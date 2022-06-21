@@ -43,6 +43,7 @@ export class AddProductComponent implements OnInit {
     this.productService.createProduct(formData).subscribe(data => {
       console.log(data);
     });
+    window.location.href="/products";
   }
 
   getFile(event: any) {
