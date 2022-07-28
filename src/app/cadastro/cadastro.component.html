@@ -1,140 +1,153 @@
-<div class="col-md-7 col-lg-8">
-<h4 class="mb-3">Criar Cadastro</h4>
-<form class="needs-validation" novalidate>
-  <div class="row g-3">
-    <div class="col-sm-6">
-      <label for="nome" class="form-label">Nome</label>
-      <input type="text" class="form-control" id="firstName" name="nome"  required [(ngModel)]="nome">
-      <div class="invalid-feedback">
-        Valid first name is required.
+<div class="col-sm-12 box">
+  <h4 class="mb-3" style="margin-top: 2%;">Cadastrar</h4>
+  <form class="needs-validation" novalidate>
+    <div class="row g-3">
+      <div class="col-sm-12">
+        <label for="nome" class="label">Nome</label>
+        <input type="text" class="form-control" id="firstName" name="nome" required [(ngModel)]="nome">
+        <div class="invalid-feedback">
+          Valid first name is required.
+        </div>
       </div>
     </div>
-
-    <div class="col-sm-6">
-      <label for="sobrenome" class="form-label">Sobrenome</label>
-      <input type="text" class="form-control" id="lastName" placeholder="" name="sobrenome" required [(ngModel)]="sobrenome">
-      <div class="invalid-feedback">
-        Valid last name is required.
+    <div class="row g-3">
+      <div class="col-sm-12 a-spacing-base">
+        <label for="sobrenome" class="label">Sobrenome</label>
+        <input type="text" class="form-control" id="lastName" name="sobrenome" required [(ngModel)]="sobrenome">
+        <div class="invalid-feedback">
+          Valid last name is required.
+        </div>
       </div>
     </div>
-
-    <div class="col-12">
-      <label for="email" class="form-label">Email </label>
-      <input type="text" class="form-control" id="email" name="email" placeholder="you@example.com"   [(ngModel)]="email">
-      <div class="invalid-feedback">
-        Please enter a valid email address for shipping updates.
+    <div class="row g-3">
+      <div class="col-sm-12">
+        <label for="email" class="label">Email </label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="you@example.com"
+          [(ngModel)]="email">
+        <div class="invalid-feedback">
+          Please enter a valid email address for shipping updates.
+        </div>
       </div>
     </div>
-
-    <div class="col-12">
-      <label for="senha" class="form-label">Senha </label>
-      <input type="text" class="form-control" id="senha" name="senha"   [(ngModel)]="senha">
-      <div class="invalid-feedback">
-        Please enter a valid senha for login.
+    <div class="row g-3">
+      <div class="col-12">
+        <label for="senha" class="label">Senha </label>
+        <input type="password" class="form-control" id="senha" name="senha" [(ngModel)]="senha">
+        <div class="invalid-feedback">
+          Please enter a valid senha for login.
+        </div>
       </div>
     </div>
-
-    <div class="col-12">
-      <label for="telefone" class="form-label">Número de telefone</label>
-      <input type="text" class="form-control" id="address" placeholder="" name="telefone" required  [(ngModel)]="numTelefone">
-      <div class="invalid-feedback">
-        Please enter your shipping address.
+    <div class="row g-3">
+      <div class="col-12">
+        <label for="telefone" class="label">Número de telefone</label>
+        <input type="text" class="form-control" id="address" mask="(00) 0 0000-0000" name="telefone" required
+          inputmode="numeric" [(ngModel)]="numTelefone">
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
       </div>
     </div>
-
-    <div class="col-md-3">
-      <label for="genero" class="form-label">Genero</label>
-      <select class="form-select is-invalid" type="text" id="validationServer04"  name="genero"   required [(ngModel)]="genero">
-        <option value="MASCULINO">Masculino</option>
-        <option value="FEMININO">Feminino</option>
-      </select>
-    </div>
-
-    <div class="col-md-5">
-      <label for="estado" class="form-label">Estado</label>
-      <select class="form-select is-invalid" id="validationServer04" type="text"  name="estado" required [(ngModel)]="estado">
-        <option value="AC">Acre</option>
-        <option value="AL">Alagoas</option>
-        <option value="AP">Amapá</option>
-        <option value="AM">Amazonas</option>
-        <option value="BA">Bahia</option>
-        <option value="CE">Ceará</option>
-        <option value="DF">Distrito Federal</option>
-        <option value="ES">Espírito Santo</option>
-        <option value="GO">Goiás</option>
-        <option value="MA">Maranhão</option>
-        <option value="MT">Mato Grosso</option>
-        <option value="MS">Mato Grosso do Sul</option>
-        <option value="MG">Minas Gerais</option>
-        <option value="PA">Pará</option>
-        <option value="PB">Paraíba</option>
-        <option value="PR">Paraná</option>
-        <option value="PE">Pernambuco</option>
-        <option value="PI">Piauí</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="RN">Rio Grande do Norte</option>
-        <option value="RS">Rio Grande do Sul</option>
-        <option value="RO">Rondônia</option>
-        <option value="RR">Roraima</option>
-        <option value="SC">Santa Catarina</option>
-        <option value="SP">São Paulo</option>
-        <option value="SE">Sergipe</option>
-        <option value="TO">Tocantins</option>
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label for="genero" class="label">Genero</label>
+        <select class="form-select is-invalid" type="text" id="validationServer04" name="genero" required
+          [(ngModel)]="genero">
+          <option value="MASCULINO">Masculino</option>
+          <option value="FEMININO">Feminino</option>
         </select>
+      </div>
     </div>
-
-    <div class="col-md-4">
-      <label for="cidade" class="form-label">Cidade</label>
-      <input type="text" class="form-control" id="cidade" placeholder="" name="cidade" required [(ngModel)]="cidade">
-      <div class="invalid-feedback">
-        Zip code required.
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="estado" class="label">Estado</label>
+        <select class="form-select is-invalid" id="validationServer04" type="text" name="estado" required
+          [(ngModel)]="estado">
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="cidade" class="label">Cidade</label>
+        <input type="text" class="form-control" id="cidade" name="cidade" required [(ngModel)]="cidade">
+        <div class="invalid-feedback">
+          Zip code required.
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-8">
+        <label for="cep" class="label">Cep</label>
+        <input type="text" class="form-control" id="cep" mask="00000-000" name="cep" required [(ngModel)]="cep">
+        <div class="invalid-feedback">
+          Zip code required.
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-12">
+        <label for="rua" class="label">Rua</label>
+        <input type="text" class="form-control" id="rua" name="rua" required [(ngModel)]="rua">
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-12">
+        <label for="endereco" class="label">Número do endereço</label>
+        <input type="text" class="form-control" id="endereco" name="endereco" required [(ngModel)]="numEndereco">
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-12">
+        <label for="bairro" class="label">Bairro</label>
+        <input type="text" class="form-control" id="bairro" name="bairro" required [(ngModel)]="bairro">
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-12">
+        <label for="complemento" class="label">Complemento</label>
+        <input type="text" class="form-control" id="complemento" name="complemento" required [(ngModel)]="complemento">
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
       </div>
     </div>
 
-    <div class="col-8">
-      <label for="cep" class="form-label">Cep</label>
-      <input type="text" class="form-control" id="cep" placeholder="" name="cep" required [(ngModel)]="cep">
-      <div class="invalid-feedback">
-        Zip code required.
-      </div>
-    </div>
+    <hr class="my-4">
 
-    <div class="col-12">
-      <label for="rua" class="form-label">Rua</label>
-      <input type="text" class="form-control" id="rua" placeholder="" name="rua" required [(ngModel)]="rua">
-      <div class="invalid-feedback">
-        Please enter your shipping address.
-      </div>
-    </div>
-
-    <div class="col-12">
-      <label for="endereco" class="form-label">Número do endereço</label>
-      <input type="text" class="form-control" id="endereco" placeholder="" name="endereco" required [(ngModel)]="numEndereco">
-      <div class="invalid-feedback">
-        Please enter your shipping address.
-      </div>
-    </div>
-
-    <div class="col-12">
-      <label for="bairro" class="form-label">Bairro</label>
-      <input type="text" class="form-control" id="bairro" placeholder="" name="bairro" required [(ngModel)]="bairro">
-      <div class="invalid-feedback">
-        Please enter your shipping address.
-      </div>
-    </div>
-
-    <div class="col-12">
-      <label for="complemento" class="form-label">Complemento</label>
-      <input type="text" class="form-control" id="complemento" placeholder=" " name="complemento" required [(ngModel)]="complemento">
-      <div class="invalid-feedback">
-        Please enter your shipping address.
-      </div>
-    </div>
-  </div>
-
-
-
-  <hr class="my-4">
-
-  <button (click)="criarUsuario()" class="w-100 btn btn-primary btn-lg" >Cria conta</button>
-</form>
+    <button (click)="criarUsuario()" class="w-100 btn btn-primary btn-sm">Cria conta</button>
+  </form>
+</div>
