@@ -1,17 +1,15 @@
-<div class="col-sm-12 box">
+<div class="col-md-12 box">
   <h4 class="mb-3" style="margin-top: 2%;">Cadastrar</h4>
   <form class="needs-validation" novalidate>
     <div class="row g-3">
-      <div class="col-sm-12">
+      <div class="col-12 col-md-6">
         <label for="nome" class="label">Nome</label>
         <input type="text" class="form-control" id="firstName" name="nome" required [(ngModel)]="nome">
         <div class="invalid-feedback">
           Valid first name is required.
         </div>
       </div>
-    </div>
-    <div class="row g-3">
-      <div class="col-sm-12 a-spacing-base">
+      <div class="col-12 col-md-6">
         <label for="sobrenome" class="label">Sobrenome</label>
         <input type="text" class="form-control" id="lastName" name="sobrenome" required [(ngModel)]="sobrenome">
         <div class="invalid-feedback">
@@ -20,7 +18,24 @@
       </div>
     </div>
     <div class="row g-3">
-      <div class="col-sm-12">
+      <div class="col-12 col-md-6">
+        <label for="telefone" class="label">Telefone</label>
+        <input type="text" class="form-control" id="address" mask="(00) 0 0000-0000" name="telefone" required
+          inputmode="numeric" [(ngModel)]="numTelefone">
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="genero" class="label">Genero</label>
+        <select class="form-control" type="text" id="validationServer04" name="genero" required [(ngModel)]="genero">
+          <option value="MASCULINO">Masculino</option>
+          <option value="FEMININO">Feminino</option>
+        </select>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-md-6">
         <label for="email" class="label">Email </label>
         <input type="text" class="form-control" id="email" name="email" placeholder="you@example.com"
           [(ngModel)]="email">
@@ -28,9 +43,7 @@
           Please enter a valid email address for shipping updates.
         </div>
       </div>
-    </div>
-    <div class="row g-3">
-      <div class="col-12">
+      <div class="col-12 col-md-6">
         <label for="senha" class="label">Senha </label>
         <input type="password" class="form-control" id="senha" name="senha" [(ngModel)]="senha">
         <div class="invalid-feedback">
@@ -39,69 +52,7 @@
       </div>
     </div>
     <div class="row g-3">
-      <div class="col-12">
-        <label for="telefone" class="label">Número de telefone</label>
-        <input type="text" class="form-control" id="address" mask="(00) 0 0000-0000" name="telefone" required
-          inputmode="numeric" [(ngModel)]="numTelefone">
-        <div class="invalid-feedback">
-          Please enter your shipping address.
-        </div>
-      </div>
-    </div>
-    <div class="row g-3">
-      <div class="col-md-3">
-        <label for="genero" class="label">Genero</label>
-        <select class="form-select is-invalid" type="text" id="validationServer04" name="genero" required
-          [(ngModel)]="genero">
-          <option value="MASCULINO">Masculino</option>
-          <option value="FEMININO">Feminino</option>
-        </select>
-      </div>
-    </div>
-    <div class="row g-3">
-      <div class="col-md-6">
-        <label for="estado" class="label">Estado</label>
-        <select class="form-select is-invalid" id="validationServer04" type="text" name="estado" required
-          [(ngModel)]="estado">
-          <option value="AC">Acre</option>
-          <option value="AL">Alagoas</option>
-          <option value="AP">Amapá</option>
-          <option value="AM">Amazonas</option>
-          <option value="BA">Bahia</option>
-          <option value="CE">Ceará</option>
-          <option value="DF">Distrito Federal</option>
-          <option value="ES">Espírito Santo</option>
-          <option value="GO">Goiás</option>
-          <option value="MA">Maranhão</option>
-          <option value="MT">Mato Grosso</option>
-          <option value="MS">Mato Grosso do Sul</option>
-          <option value="MG">Minas Gerais</option>
-          <option value="PA">Pará</option>
-          <option value="PB">Paraíba</option>
-          <option value="PR">Paraná</option>
-          <option value="PE">Pernambuco</option>
-          <option value="PI">Piauí</option>
-          <option value="RJ">Rio de Janeiro</option>
-          <option value="RN">Rio Grande do Norte</option>
-          <option value="RS">Rio Grande do Sul</option>
-          <option value="RO">Rondônia</option>
-          <option value="RR">Roraima</option>
-          <option value="SC">Santa Catarina</option>
-          <option value="SP">São Paulo</option>
-          <option value="SE">Sergipe</option>
-          <option value="TO">Tocantins</option>
-        </select>
-      </div>
-      <div class="col-md-6">
-        <label for="cidade" class="label">Cidade</label>
-        <input type="text" class="form-control" id="cidade" name="cidade" required [(ngModel)]="cidade">
-        <div class="invalid-feedback">
-          Zip code required.
-        </div>
-      </div>
-    </div>
-    <div class="row g-3">
-      <div class="col-md-8">
+      <div class="col-12 col-md-12">
         <label for="cep" class="label">Cep</label>
         <input type="text" class="form-control" id="cep" mask="00000-000" name="cep" required [(ngModel)]="cep">
         <div class="invalid-feedback">
@@ -110,17 +61,31 @@
       </div>
     </div>
     <div class="row g-3">
-      <div class="col-md-12">
+      <div class="col-12 col-md-6">
+        <label for="cidade" class="label">Cidade</label>
+        <input type="text" class="form-control" id="cidade" name="cidade" required [(ngModel)]="cidade">
+        <div class="invalid-feedback">
+          Zip code required.
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="estado" class="label">Estado</label>
+        <input type="text" class="form-control" id="estado" name="estado" required [(ngModel)]="estado">
+        <div class="invalid-feedback">
+          Zip code required.
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-md-6">
         <label for="rua" class="label">Rua</label>
         <input type="text" class="form-control" id="rua" name="rua" required [(ngModel)]="rua">
         <div class="invalid-feedback">
           Please enter your shipping address.
         </div>
       </div>
-    </div>
-    <div class="row g-3">
-      <div class="col-md-12">
-        <label for="endereco" class="label">Número do endereço</label>
+      <div class="col-12 col-md-6">
+        <label for="endereco" class="label">Número</label>
         <input type="text" class="form-control" id="endereco" name="endereco" required [(ngModel)]="numEndereco">
         <div class="invalid-feedback">
           Please enter your shipping address.
@@ -128,16 +93,14 @@
       </div>
     </div>
     <div class="row g-3">
-      <div class="col-md-12">
+      <div class="col-12 col-md-6">
         <label for="bairro" class="label">Bairro</label>
         <input type="text" class="form-control" id="bairro" name="bairro" required [(ngModel)]="bairro">
         <div class="invalid-feedback">
           Please enter your shipping address.
         </div>
       </div>
-    </div>
-    <div class="row g-3">
-      <div class="col-md-12">
+      <div class="col-12 col-md-6">
         <label for="complemento" class="label">Complemento</label>
         <input type="text" class="form-control" id="complemento" name="complemento" required [(ngModel)]="complemento">
         <div class="invalid-feedback">
@@ -146,8 +109,6 @@
       </div>
     </div>
 
-    <hr class="my-4">
-
-    <button (click)="criarUsuario()" class="w-100 btn btn-primary btn-sm">Cria conta</button>
+    <button type="submit" (click)="criarUsuario()" class="w-100 btn btn-sm btn-primary button">Salvar</button>
   </form>
 </div>

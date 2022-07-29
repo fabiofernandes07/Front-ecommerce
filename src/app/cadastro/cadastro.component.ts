@@ -1,5 +1,8 @@
 import { UsuarioService } from './../usuario.service';
 import { Component, OnInit } from '@angular/core';
+import { SweetalertCustom } from 'src/shared/utils/sweetalert-custom';
+import { MSG_SUCCES } from 'src/shared/utils/constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -22,7 +25,10 @@ export class CadastroComponent implements OnInit {
   bairro: any;
   complemento: any;
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(
+    public router: Router,
+    private usuarioService: UsuarioService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -43,10 +49,13 @@ export class CadastroComponent implements OnInit {
       number: this.numEndereco,
       district: this.bairro,
       complement: this.complemento
-    }).subscribe(data => {
-      window.location.href = '/';
-    })
-    // window.location.href = "http://localhost:4200"
+    }).subscribe(
+      () => {
+        SweetalertCustom.showAlertTimer('success', MSG_SUCCES).then(() => {
+          this.router.navigate(['/']);
+        });
+      }
+    );
   }
 
 }

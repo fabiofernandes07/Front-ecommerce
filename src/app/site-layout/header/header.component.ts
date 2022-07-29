@@ -1,5 +1,6 @@
 import { CartService } from 'src/app/cart.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,18 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   role: any
-  user : any;
+  user: any;
   busca: any;
-  constructor(private CartService: CartService) { }
+
+  constructor(
+    public router: Router,
+    private CartService: CartService
+  ) { }
 
   ngOnInit(): void {
-    const role = JSON.parse(localStorage.getItem('user') || JSON.stringify({user:{role:""}})).user.role;
+    const role = JSON.parse(localStorage.getItem('user') || JSON.stringify({ user: { role: "" } })).user.role;
     this.role = role;
     const user = JSON.parse(localStorage.getItem('user') || "").user.email;
     this.user = user;
   }
+
   reload() {
-    window.location.href = "http://localhost:4200/"
+    this.router.navigate(['/']);
+    location.reload();
   }
 
   search() {

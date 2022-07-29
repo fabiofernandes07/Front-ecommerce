@@ -1,21 +1,20 @@
 .box {
-  margin-top: 2%;
+  margin-top: 100px;
   border: 1px #ddd solid;
   text-align: center !important;
   box-sizing: border-box;
 }
 
-.form-control {
-  margin-left: 5%;
-  width: 90% !important;
-}
-
 .label {
   display: block;
   font-weight: 550;
-  margin-left: 5%;
   margin-top: 2%;
   text-align: left; 
+}
+
+.button {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .bd-placeholder-img {
