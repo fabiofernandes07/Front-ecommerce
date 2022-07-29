@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     const role = JSON.parse(localStorage.getItem('user') || JSON.stringify({ user: { role: "" } })).user.role;
     this.role = role;
-    const user = JSON.parse(localStorage.getItem('user') || "").user.email;
+    const user = JSON.parse(localStorage.getItem('user') || "").user.fullname;
     this.user = user;
   }
 

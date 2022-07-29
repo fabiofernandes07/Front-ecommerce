@@ -4,22 +4,22 @@
       <form (submit)="login(loginForm)" #loginForm="ngForm"
         style="display: flex; flex-direction:column; align-items:center;">
         <img class="mb-4" src="http://localhost:8080/api/data/logo-ourclub.png" alt="" width="160" height="160">
-        <h2 class="font">LOGIN</h2>
-        <h3 class="font">SEJA BEM VINDO/A!</h3>
+        <h3 class="font">BEM-VINDO!</h3>
 
-        <div class="form-group">
-          <input type="email" class="form-control" id="floatingInput" placeholder="e-mail" name="emailInput" required
-            ngModel>
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="senha" name="passwordInput"
+        <div class="col-12 col-md-12">
+          <input type="email" class="form-control form" id="floatingInput" placeholder="e-mail" name="emailInput"
             required ngModel>
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit"
-          style="margin-bottom: 15px; max-width: 200px;">Entrar</button>
-        <button routerLink="/cadastro" class="w-100 btn btn-lg btn-primary"
-          style="margin-bottom: 15px; max-width: 200px;">Criar conta</button>
+        <div class="col-12 col-md-12">
+          <input type="password" class="form-control form" id="floatingPassword" placeholder="senha"
+            name="passwordInput" required ngModel>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary button" type="submit">Entrar</button>
+
+        <button routerLink="/cadastro" class="w-100 btn btn-lg btn-primary button">Criar conta</button>
+
         <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
       </form>
     </div>

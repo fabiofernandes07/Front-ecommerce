@@ -1,3 +1,27 @@
+nav {
+  background-color: black;
+}
+.search-bar {
+  background-color: #fff;
+  height: 100%;
+  border: none;
+  font-size: 14;
+  border: 0;
+  border-bottom-left-radius: 100px !important;
+  border-top-left-radius: 100px !important;
+}
+
+.search {
+  background-color: #ddd;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  color: #13abe1;
+  top: 0px;
+  border: 0;
+  width: 60px;
+  height: 31px;
+}
+
 /* Dropdown Button */
 .dropbtn {
   background-color: black;
