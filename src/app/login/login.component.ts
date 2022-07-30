@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.clear();
+    this.load();
   }
 
   login(form: any) {
@@ -26,8 +27,15 @@ export class LoginComponent implements OnInit {
       this.user = data
       localStorage.setItem('cart', JSON.stringify([]));
       localStorage.setItem('user', JSON.stringify(this.user));
+      sessionStorage.refresh = 'true'
       window.location.replace("/products");
     });
+  }
+
+  load() {
+    //Session storage salva os dados como string
+    (sessionStorage.refresh == 'true' || !sessionStorage.refresh) && location.reload();
+    sessionStorage.refresh = false;
   }
 
 }

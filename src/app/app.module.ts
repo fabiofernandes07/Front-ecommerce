@@ -1,13 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSelectModule } from '@angular/material/select';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatInputModule} from '@angular/material/input';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule } from '@angular/material/icon';
+import {MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -26,6 +36,7 @@ import { PedidosAdmComponent } from './pedidos-adm/pedidos-adm.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalComponent } from './modal/modal.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { AcompanhamentoProdutoComponent } from './acompanhamento-produto/acompanhamento-produto.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +50,8 @@ import { NgxMaskModule } from 'ngx-mask';
     CadastroComponent,
     PedidosComponent,
     PedidosAdmComponent,
-    ModalComponent
+    ModalComponent,
+    AcompanhamentoProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +69,9 @@ import { NgxMaskModule } from 'ngx-mask';
     MatSelectModule,
     MatToolbarModule,
     MatExpansionModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
