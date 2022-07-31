@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
   reload() {
     this.router.navigate(['/']);
-    location.reload();
+
   }
 
   search() {

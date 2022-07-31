@@ -19,7 +19,7 @@
               <td>{{sale.description}}</td>
               <td>{{sale.total}}</td>
               <td>Pendente</td>
-              <td>{{sale.delivery.tracking ? sale.delivery.tracking : 'Indisponivel'}}</td>
+              <td><a routerLink="/tracking">{{sale.delivery.tracking ? sale.delivery.tracking : 'Indisponivel'}}</a></td>
             </tr>
           </tbody>
         </table>
