@@ -1,0 +1,16 @@
+export interface NovoUsuario {
+  name: string,
+  lastName: string,
+  email: string,
+  secret: string,
+  role: 'CLIENTE',
+  phone: string,
+  gender: string,
+  state: string,
+  city: string,
+  cep: string,
+  street: string,
+  number: number,
+  district: string,
+  complement: string,
+}
