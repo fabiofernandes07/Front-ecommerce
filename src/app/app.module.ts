@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxMaskModule } from 'ngx-mask';
+import { AcompanhamentoProdutoComponent } from './acompanhamento-produto/acompanhamento-produto.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -26,7 +27,6 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { ProductsModule } from './products/products.module';
 import { SiteLayoutModule } from './site-layout/site-layout.module';
 import { SucessComponent } from './sucess/sucess.component';
-// import { AcompanhamentoProdutoComponent } from './acompanhamento-produto/acompanhamento-produto.component';
 
 @NgModule({
   declarations: [

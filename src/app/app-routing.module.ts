@@ -1,6 +1,6 @@
-// import { AcompanhamentoProdutoComponent } from './acompanhamento-produto/acompanhamento-produto.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AcompanhamentoProdutoComponent } from './acompanhamento-produto/acompanhamento-produto.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'order', component: ListOrdersComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'tracking', component:AcompanhamentoProdutoComponent}
+  { path: 'tracking', component: AcompanhamentoProdutoComponent }
 ];
 
 @NgModule({
