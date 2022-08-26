@@ -1,5 +1,4 @@
-import { AcompanhamentoProdutoComponent } from './acompanhamento-produto/acompanhamento-produto.component';
-import { HomeComponent } from './home/home.component';
+// import { AcompanhamentoProdutoComponent } from './acompanhamento-produto/acompanhamento-produto.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -16,10 +15,10 @@ const routes: Routes = [
   { path: 'pedidos', component: PedidosComponent },
   { path: 'pedidos-adm', component: PedidosAdmComponent },
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
-  {path: 'order', component:ListOrdersComponent},
-  {path: 'cart', component:CartComponent},
-  {path: 'checkout', component:CheckoutComponent},
-  {path: 'tracking', component:AcompanhamentoProdutoComponent}
+  { path: 'order', component: ListOrdersComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'tracking', component:AcompanhamentoProdutoComponent}
 ];
 
 @NgModule({

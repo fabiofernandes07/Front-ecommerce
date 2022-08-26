@@ -33,7 +33,8 @@ export class AddProductComponent implements OnInit {
     formData.append("value",form.value.product_price);
     formData.append("description",form.value.product_description);
     formData.append("gender",form.value.product_gender);
-    console.log(this.files)
+    console.log(form.value.product_subcategory);
+
     for (const file of this.files) {
       formData.append("file", file);
     }
@@ -59,8 +60,4 @@ export class AddProductComponent implements OnInit {
     })
     this.subCategoryList = this.subCategoryList[0].subCategs;
   }
-
-
-  
-
 }
