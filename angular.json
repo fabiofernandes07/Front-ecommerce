@@ -28,7 +28,6 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -79,20 +78,13 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ecommerce:build"
+          },
           "configurations": {
             "production": {
               "browserTarget": "ecommerce:build:production"
-            },
-            "development": {
-              "browserTarget": "ecommerce:build:development"
             }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ecommerce:build"
           }
         },
         "test": {
