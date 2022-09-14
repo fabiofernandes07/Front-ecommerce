@@ -1,3 +1,9 @@
+.form-required::after {
+  content: " * ";
+  font-size: 0.8em;
+  color: #dc3545 !important;
+}
+
 .box {
   margin-top: 100px;
   border: 1px #ddd solid;
@@ -7,7 +13,7 @@
 
 .label {
   display: block;
-  font-weight: 550;
+  font-weight: 600;
   margin-top: 2%;
   text-align: left; 
 }

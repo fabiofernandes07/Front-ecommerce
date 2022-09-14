@@ -2,130 +2,137 @@
   <div class="col-md-12 box">
     <h4 class="mb-3" style="margin-top: 2%;">Cadastrar</h4>
     <div class="row g-3">
-      <div class="form-group">
-        <label for="nome" class="form-required">
-          <small [ngClass]="{'text-red': validateMessage.messageDisplay.nome}">Nome</small>
-        </label>
-        <input type="text" class="form-control form-control-custom" formControlName="nome"
-          [ngClass]="setErrorValidate('nome')">
-        <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.nome"
-          [innerHTML]="validateMessage.messageDisplay.nome"></small>
-      </div>
-      <div class="form-group">
-        <label for="sobreNome" class="form-required">
-          <small [ngClass]="{'text-red': validateMessage.messageDisplay.sobreNome}">Sobrenome</small>
-        </label>
-        <input type="text" class="form-control form-control-custom" formControlName="sobreNome"
-          [ngClass]="setErrorValidate('sobreNome')">
-        <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.sobreNome"
-          [innerHTML]="validateMessage.messageDisplay.sobreNome"></small>
-      </div>
-      <!-- <div class="col-12 col-md-6">
-          <label for="nome" class="label">Nome</label>
-          <input type="text" class="form-control" id="firstName" name="nome" required [(ngModel)]="nome">
-          <div class="invalid-feedback">
-            Valid first name is required.
-          </div>
-        </div> -->
-      <!-- <div class="col-12 col-md-6">
-          <label for="sobreNome" class="label">Sobrenome</label>
-          <input type="text" class="form-control" id="lastName" name="sobreNome" required [(ngModel)]="sobreNome">
-          <div class="invalid-feedback">
-            Valid last name is required.
-          </div>
-        </div> -->
-    </div>
-    <!-- <div class="row g-3">
-        <div class="col-12 col-md-6">
-          <label for="telefone" class="label">Telefone</label>
-          <input type="text" class="form-control" id="address" mask="(00) 0 0000-0000" name="telefone" required
-            inputmode="numeric" [(ngModel)]="numTelefone">
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="nome" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.nome}">Nome</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="nome"
+            [ngClass]="setErrorValidate('nome')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.nome"
+            [innerHTML]="validateMessage.messageDisplay.nome"></small>
         </div>
-        <div class="col-12 col-md-6">
-          <label for="genero" class="label">Genero</label>
-          <select class="form-control" type="text" id="validationServer04" name="genero" required [(ngModel)]="genero">
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="sobreNome" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.sobreNome}">Sobrenome</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="sobreNome"
+            [ngClass]="setErrorValidate('sobreNome')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.sobreNome"
+            [innerHTML]="validateMessage.messageDisplay.sobreNome"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="email" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.email}">Email</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="email"
+            placeholder="you@example.com" [ngClass]="setErrorValidate('email')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.email"
+            [innerHTML]="validateMessage.messageDisplay.email"></small>
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="senha" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.senha}">Senha</small>
+          </label>
+          <input type="password" class="form-control form-control-custom" formControlName="senha"
+            [ngClass]="setErrorValidate('senha')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.senha"
+            [innerHTML]="validateMessage.messageDisplay.senha"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="telefone" class="label">
+            <small>Telefone</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="numTelefone"
+            mask="(00) 0 0000-0000">
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="telefone" class="label">
+            <small>Genero</small>
+          </label>
+          <select type="text" class="form-control form-control-custom" formControlName="genero">
             <option value="MASCULINO">Masculino</option>
             <option value="FEMININO">Feminino</option>
+            <option value="FEMININO">Outro</option>
           </select>
         </div>
       </div>
-      <div class="row g-3">
-        <div class="col-12 col-md-6">
-          <label for="email" class="label">Email </label>
-          <input type="text" class="form-control" id="email" name="email" placeholder="you@example.com"
-            [(ngModel)]="email">
-          <div class="invalid-feedback">
-            Please enter a valid email address for shipping updates.
-          </div>
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="senha" class="label">Senha </label>
-          <input type="password" class="form-control" id="senha" name="senha" [(ngModel)]="senha">
-          <div class="invalid-feedback">
-            Please enter a valid senha for login.
-          </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="cep" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.cep}">CEP</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="cep" mask="00000-000"
+            [ngClass]="setErrorValidate('cep')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.cep"
+            [innerHTML]="validateMessage.messageDisplay.cep"></small>
         </div>
       </div>
-      <div class="row g-3">
-        <div class="col-12 col-md-12">
-          <label for="cep" class="label">Cep</label>
-          <input type="text" class="form-control" id="cep" mask="00000-000" name="cep" required [(ngModel)]="cep">
-          <div class="invalid-feedback">
-            Zip code required.
-          </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="estado" class="label">
+            <small>Estado</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="estado">
         </div>
       </div>
-      <div class="row g-3">
-        <div class="col-12 col-md-6">
-          <label for="cidade" class="label">Cidade</label>
-          <input type="text" class="form-control" id="cidade" name="cidade" required [(ngModel)]="cidade">
-          <div class="invalid-feedback">
-            Zip code required.
-          </div>
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="estado" class="label">Estado</label>
-          <input type="text" class="form-control" id="estado" name="estado" required [(ngModel)]="estado">
-          <div class="invalid-feedback">
-            Zip code required.
-          </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="cidade" class="label">
+            <small>Cidade</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="cidade">
         </div>
       </div>
-      <div class="row g-3">
-        <div class="col-12 col-md-6">
-          <label for="rua" class="label">Rua</label>
-          <input type="text" class="form-control" id="rua" name="rua" required [(ngModel)]="rua">
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
-        </div>
-        <div class="col-12 col-md-6">
-          <label for="endereco" class="label">NÃºmero</label>
-          <input type="text" class="form-control" id="endereco" name="endereco" required [(ngModel)]="numEndereco">
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label for="rua" class="label">
+            <small>Rua</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="rua">
         </div>
       </div>
-      <div class="row g-3">
-        <div class="col-12 col-md-6">
-          <label for="bairro" class="label">Bairro</label>
-          <input type="text" class="form-control" id="bairro" name="bairro" required [(ngModel)]="bairro">
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
+      <div class="col-12 col-md-2">
+        <div class="form-group">
+          <label for="numEndereco" class="label">
+            <small>Número</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="numEndereco">
         </div>
-        <div class="col-12 col-md-6">
-          <label for="complemento" class="label">Complemento</label>
-          <input type="text" class="form-control" id="complemento" name="complemento" required [(ngModel)]="complemento">
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="bairro" class="label">
+            <small>Bairro</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="bairro">
         </div>
-      </div> -->
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="form-group">
+          <label for="complemento" class="label">
+            <small>Complemento</small>
+          </label>
+          <input type="text" class="form-control form-control-custom" formControlName="complemento">
+        </div>
+      </div>
+    </div>
 
     <button type="submit" (click)="criarUsuario()" [disabled]="!enableShipping()"
       class="w-100 btn btn-sm btn-primary button">Salvar</button>
