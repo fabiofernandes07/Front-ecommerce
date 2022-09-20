@@ -10,16 +10,8 @@ export class ValidationMessages implements ValidateMessages {
     password: {
       required: 'Senha é obrigatória.',
     },
-    senhaAtual: {
-      required: 'A Senha Atual é obrigatória.'
-    },
-    novaSenha: {
+    senha: {
       required: 'Senha é obrigatória.',
-      passwordNotMatch: 'Senhas não se correspondem.',
-      passwordInvalid: 'A senha precisa ter pelo menos um número, um caractere e no mínimo 6 caracteres.'
-    },
-    novaSenhaRepeat: {
-      required: 'Confirmar Senha é obrigatória.',
       passwordNotMatch: 'Senhas não se correspondem.',
       passwordInvalid: 'A senha precisa ter pelo menos um número, um caractere e no mínimo 6 caracteres.'
     },

@@ -88,42 +88,6 @@ export class Util {
   }
 
   /**
-   * Função para alterar o valor do botão de Buscar
-   * @param buttonSubmitConfig Objeto para configuração do botão
-   * @param isResp Controle a submissão do botão
-   */
-  static setBtnFilterReq(buttonSubmitConfig?, isResp = false) {
-    if (buttonSubmitConfig) {
-      buttonSubmitConfig.buttonText = !isResp ? 'Buscando' : 'Buscar';
-      buttonSubmitConfig.buttonSubmited = !isResp;
-    }
-  }
-
-  /**
-   * Função para alterar o valor do botão de Submissão
-   * @param buttonSubmitConfig Objeto para configuração do submissão
-   * * @param isResp Controle a submissão do botão
-   */
-  static setBtnSubmitReq(buttonSubmitConfig?, isResp = false) {
-    if (buttonSubmitConfig) {
-      buttonSubmitConfig.buttonText = !isResp ? 'Salvando' : 'Salvar';
-      buttonSubmitConfig.buttonSubmited = !isResp;
-    }
-  }
-
-  /**
-   * Função para alterar o valor do botão de Submissão
-   * @param buttonSubmitConfig Objeto para configuração do submissão
-   * * @param isResp Controle a submissão do botão
-   */
-  static setBtnSubmitReqCustom(buttonSubmitConfig?, isResp = false, desc1 = '', desc2 = '') {
-    if (buttonSubmitConfig) {
-      buttonSubmitConfig.buttonText = !isResp ? desc2 : desc1;
-      buttonSubmitConfig.buttonSubmited = !isResp;
-    }
-  }
-
-  /**
    * Função para setar a classe de erro no campo
    * @param formGroup FormGroup do parametro
    * @param messageDisplay Mensagem a ser exibida
@@ -155,23 +119,6 @@ export class Util {
 
     const formatedDate = moment(date).format('YYYY-MM-DD');
     formControl.patchValue(formatedDate);
-  }
-
-  /**
-   * Retorna URLSearchParams
-   */
-  static createFilter() {
-    const params = new URLSearchParams();
-    return params;
-  }
-
-  /**
-   * Retorna URLSearchParams com o parametro de "Ativo" com o valor "true"
-   */
-  static createFilterStatusActive() {
-    const params = new URLSearchParams();
-    params.append('ativo', 'true');
-    return params;
   }
 
   /**
@@ -219,46 +166,6 @@ export class Util {
   }
 
   /**
-   * Cria as query params do filtro de busca
-   * @param param Objero a ser convertido em parametros
-   */
-  static getQueryParams(param: object) {
-    const params: URLSearchParams = new URLSearchParams();
-
-    Object.keys(param).forEach(campo => {
-      const item = param[campo];
-      if (item) {
-        params.append(campo, item);
-      }
-    });
-
-    return params;
-  }
-
-  /**
-   * Obtem os campos invalidos do form
-   * @param form Form a ser verificado
-   */
-  static catchFieldsInvalids(form: FormGroup | FormArray): string[] {
-    const invalidControls: string[] = [];
-
-    const recursiveFunc = (formGP: FormGroup | FormArray) => {
-      Object.keys(formGP.controls).forEach(field => {
-        const control = formGP.get(field);
-        if (control instanceof FormGroup) {
-          recursiveFunc(control);
-        } else if (control instanceof FormArray) {
-          recursiveFunc(control);
-        } else {
-          if (control.invalid) { invalidControls.push(field); }
-        }
-      });
-    };
-    recursiveFunc(form);
-    return invalidControls;
-  }
-
-  /**
    * * Abre o modal no tamanho
    * @param modalService Serviço do modal
    * @param component O componente a ser aberto
@@ -270,16 +177,6 @@ export class Util {
     );
 
     return modalRef;
-  }
-
-  static getListYear(): any[] {
-    const yearToday = new Date().getFullYear();
-    const range = [];
-    range.push(yearToday);
-    for (let i = 1; i < 12; i++) {
-      range.push(yearToday - i);
-    }
-    return range;
   }
 
   static toBoolean(param: any) {
@@ -303,7 +200,6 @@ export class Util {
   static removeCpfCnpjMask(param: any) {
 
     return param.replaceAll('.', '').replaceAll('-', '').replaceAll('/', '');
-
   }
 
   /**

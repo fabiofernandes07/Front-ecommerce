@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { SweetalertCustom } from 'src/shared/utils/sweetalert-custom';
 import { MSG_SUCCES } from 'src/shared/utils/constants';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { FormBase } from 'src/shared/utils/form-base';
 import { ValidatorsCustom } from 'src/shared/utils/validators-custom';
 import { CadastroMessages } from './cadastro.messages';
+import cep from 'cep-promise';
 
 @Component({
   selector: 'app-cadastro',
@@ -34,36 +35,42 @@ export class CadastroComponent extends FormBase implements OnInit {
       sobreNome: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
       email: new FormControl('', [ValidatorsCustom.noWhitespaceValidator, ValidatorsCustom.validEmail]),
       senha: new FormControl('', [ValidatorsCustom.noWhitespaceValidator, ValidatorsCustom.validatePasswordValid]),
-      numTelefone: new FormControl(''),
-      genero: new FormControl(''),
+      telefone: new FormControl('', [Validators.required, ValidatorsCustom.validPhone]),
+      genero: new FormControl('', Validators.required),
       cep: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
-      estado: new FormControl(''),
-      cidade: new FormControl(''),
-      rua: new FormControl(''),
-      numEndereco: new FormControl(''),
-      bairro: new FormControl(''),
+      estado: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
+      cidade: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
+      rua: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
+      numEndereco: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
+      bairro: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
       complemento: new FormControl(''),
       ativo: new FormControl(true),
     });
   }
 
-  enableShipping() {
-    if (this.form.valid) {
-      return true;
+  public async onChange(event: number) {
+    if (Object.keys(event).length == 8) {
+      let returnCep: any;
+      await cep(event).then(r => {
+        returnCep = r;
+      });
+      this.form.get('estado').setValue(returnCep.state);
+      this.form.get('cidade').setValue(returnCep.city);
+      this.form.get('rua').setValue(returnCep.street);
+      this.form.get('bairro').setValue(returnCep.neighborhood);
     }
-    return false;
   }
 
   criarUsuario() {
-    if (!this.enableShipping()) {
-      console.log(this.form.value);
-      this.usuarioService.addUser({
+    if (this.enableShipping()) {
+      const payload =
+      {
         name: this.form.value.nome,
         lastName: this.form.value.sobreNome,
         email: this.form.value.email,
         secret: this.form.value.senha,
         role: 'CLIENTE',
-        phone: this.form.value.numTelefone,
+        phone: this.form.value.telefone,
         gender: this.form.value.genero,
         state: this.form.value.estado,
         city: this.form.value.cidade,
@@ -71,14 +78,18 @@ export class CadastroComponent extends FormBase implements OnInit {
         street: this.form.value.rua,
         number: this.form.value.numEndereco,
         district: this.form.value.bairro,
-        complement: this.form.value.complemento
-      }).subscribe(
-        () => {
-          SweetalertCustom.showAlertTimer('success', MSG_SUCCES).then(() => {
-            this.router.navigate(['/']);
-          });
-        }
-      );
+      };
+      if (this.form.value.complemento) {
+        payload['complement'] = this.form.value.complemento
+      }
+      this.usuarioService.addUser(payload)
+        .subscribe(
+          () => {
+            SweetalertCustom.showAlertTimer('success', MSG_SUCCES).then(() => {
+              this.router.navigate(['/']);
+            });
+          }
+        );
     }
   }
 }

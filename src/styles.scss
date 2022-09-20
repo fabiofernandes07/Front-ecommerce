@@ -8,3 +8,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.text-red {
+    color: #dc3545;
+}
+  
+.form-required::after {
+    content: " * ";
+    font-size: 0.8em;
+    color: #dc3545 !important;
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-top: 2%;
+    text-align: left; 
+}
