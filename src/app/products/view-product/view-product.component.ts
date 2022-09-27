@@ -2,6 +2,7 @@ import { CartService } from './../../cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
+import { SweetalertCustom } from 'src/shared/utils/sweetalert-custom';
 
 @Component({
   selector: 'app-view-product',
@@ -46,7 +47,7 @@ export class ViewProductComponent implements OnInit {
       flag = true;
     }
     this.cartService.addtoCart({...item,sizeDesc: size.description, sizeId: this.sizeId, name: this.name, number: this.number, personValue: flag ? 20 : 0});
-
+    SweetalertCustom.showAlertTimer('success', `1x ${item.title}  Tam: ${size.description}  Name: ${this.name ? this.name : '-'}  Number: ${this.number ? this.number : '-'}`)
   }
   getSizeDesc(value:any){
     this.sizeDesc = value;
