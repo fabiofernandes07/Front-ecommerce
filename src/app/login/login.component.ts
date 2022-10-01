@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SweetalertCustom } from 'src/shared/utils/sweetalert-custom';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -23,13 +24,17 @@ export class LoginComponent implements OnInit {
   login(form: any) {
     this.email = form.value.emailInput;
     this.password = form.value.passwordInput;
-    this.loginService.login({ email: this.email, password: this.password }).subscribe(data => {
-      this.user = data
-      localStorage.setItem('cart', JSON.stringify([]));
-      localStorage.setItem('user', JSON.stringify(this.user));
-      sessionStorage.refresh = 'true'
-      window.location.replace("/products");
-    });
+    this.loginService.login({ email: this.email, password: this.password }).subscribe(
+      data => {
+        this.user = data
+        localStorage.setItem('cart', JSON.stringify([]));
+        localStorage.setItem('user', JSON.stringify(this.user));
+        sessionStorage.refresh = 'true'
+        window.location.replace("/products");
+      },
+      () => {
+        SweetalertCustom.showAlertConfirm('error', "Usuário ou senha incorreto!");
+      });
   }
 
   load() {
