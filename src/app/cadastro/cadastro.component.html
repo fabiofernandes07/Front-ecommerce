@@ -1,6 +1,6 @@
 <form [formGroup]="form" (keydown.enter)="$event.preventDefault()">
   <div class="col-md-12 box">
-    <h4 class="mb-3" style="margin-top: 2%;">Cadastrar</h4>
+    <h4 class="title">Cadastrar</h4>
     <div class="row g-3">
       <div class="col-12 col-md-4">
         <div class="form-group">
@@ -62,9 +62,10 @@
             <small [ngClass]="{'text-red': validateMessage.messageDisplay.genero}">Genero</small>
           </label>
           <select type="text" class="form-control" formControlName="genero" [ngClass]="setErrorValidate('genero')">
+            <option value="">Selecione</option>
             <option value="MASCULINO">Masculino</option>
             <option value="FEMININO">Feminino</option>
-            <option value="FEMININO">Outro</option>
+            <option value="OUTRO">Outro</option>
           </select>
           <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.genero"
             [innerHTML]="validateMessage.messageDisplay.genero"></small>
@@ -77,7 +78,7 @@
           <label for="cep" class="form-required label">
             <small [ngClass]="{'text-red': validateMessage.messageDisplay.cep}">CEP</small>
           </label>
-          <input type="text" class="form-control" formControlName="cep" mask="00000-000"
+          <input type="text" class="form-control" formControlName="cep" mask="99999-999"
             [ngClass]="setErrorValidate('cep')" (ngModelChange)="onChange($event)">
           <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.cep"
             [innerHTML]="validateMessage.messageDisplay.cep"></small>
@@ -147,6 +148,6 @@
     </div>
 
     <button type="submit" (click)="criarUsuario()" [disabled]="!enableShipping()"
-      class="w-100 btn btn-sm btn-primary button">Salvar</button>
+      class="w-100 btn btn-primary button">Salvar</button>
   </div>
 </form>

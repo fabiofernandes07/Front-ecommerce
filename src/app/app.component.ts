@@ -10,12 +10,9 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.isLoged());
-    console.log('teste')
-   }
+  }
 
   isLoged() {
     return localStorage.getItem('token') !== null;
   }
-
 }

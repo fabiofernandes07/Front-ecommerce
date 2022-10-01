@@ -1,18 +1,14 @@
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import ptBr from '@angular/common/locales/pt';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSelectModule } from '@angular/material/select';
-import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxMaskModule } from 'ngx-mask';
 import { AcompanhamentoProdutoComponent } from './acompanhamento-produto/acompanhamento-produto.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRouting } from './app-routing';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CancelComponent } from './cancel/cancel.component';
@@ -24,45 +20,41 @@ import { ModalComponent } from './modal/modal.component';
 import { OrdersModule } from './orders/orders.module';
 import { PedidosAdmComponent } from './pedidos-adm/pedidos-adm.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
-import { ProductsModule } from './products/products.module';
 import { SiteLayoutModule } from './site-layout/site-layout.module';
 import { SucessComponent } from './sucess/sucess.component';
+
+registerLocaleData(ptBr);
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CadastroComponent,
     CartComponent,
     CancelComponent,
     SucessComponent,
     CheckoutComponent,
     LoginComponent,
-    CadastroComponent,
     PedidosComponent,
     PedidosAdmComponent,
     ModalComponent,
     AcompanhamentoProdutoComponent
   ],
   imports: [
+    AppRouting,
     BrowserModule,
-    AppRoutingModule,
     NgbModule,
     OrdersModule,
     SiteLayoutModule,
-    ProductsModule,
     HttpClientModule,
     FormsModule,
-    MatTableModule,
     BrowserAnimationsModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatSelectModule,
-    MatToolbarModule,
-    MatExpansionModule,
     NgxMaskModule.forRoot(),
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

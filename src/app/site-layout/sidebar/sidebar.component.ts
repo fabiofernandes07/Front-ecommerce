@@ -10,26 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
   categoryList: any;
   subCategoryList: any;
-  adm : boolean = true;
+  adm: boolean = true;
   role: any;
   id: any;
-  constructor(private productsService : ProductService) { }
+  constructor(private productsService: ProductService) { }
 
   ngOnInit(): void {
-    const role = JSON.parse(localStorage.getItem('user') || JSON.stringify({user:{role:""}})).user.role;
-    console.log(role);
+    const role = JSON.parse(localStorage.getItem('user') || JSON.stringify({ user: { role: "" } })).user.role;
     this.role = role;
-    this.productsService.getCategory().subscribe(async data =>{
+    this.productsService.getCategory().subscribe(async data => {
       this.categoryList = data;
 
-      this.categoryList = await Promise.all(this.categoryList.map(async(categ:any)=>{
+      this.categoryList = await Promise.all(this.categoryList.map(async (categ: any) => {
         this.subCategoryList = await this.productsService.getSubCategory(categ.id).toPromise()
-        // console.log(this.subCategoryList)
         return {
-          ...categ,subCategs:this.subCategoryList
+          ...categ, subCategs: this.subCategoryList
         }
       }))
-      console.log(this.categoryList);
     })
   }
 }

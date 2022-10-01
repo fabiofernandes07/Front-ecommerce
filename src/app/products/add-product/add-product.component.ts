@@ -1,63 +1,91 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MSG_SUCCES } from 'src/shared/utils/constants';
+import { FormBase } from 'src/shared/utils/form-base';
+import { SweetalertCustom } from 'src/shared/utils/sweetalert-custom';
+import { ValidatorsCustom } from 'src/shared/utils/validators-custom';
 import { ProductService } from '../product.service';
+import { AddProductMessages } from './add-product.messages';
 
 @Component({
   selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
+  templateUrl: './add-product.component.html'
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent extends FormBase implements OnInit {
+
   files: any;
   categoryList: any;
   subCategoryList: any;
-  adm : boolean = true;
-  id: any = 1;
-  constructor(private productService: ProductService) {}
+
+  constructor(
+    public router: Router,
+    public activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private productService: ProductService
+  ) {
+    super(router, activatedRoute, new AddProductMessages().getMessages());
+  }
 
   ngOnInit(): void {
-    this.productService.getCategory().subscribe(async data =>{
-      this.categoryList = data;
+    this.createFormGroup();
+    this.getAllCategory();
+  }
 
-      this.categoryList = await Promise.all(this.categoryList.map(async(categ:any)=>{
-        this.subCategoryList = await this.productService.getSubCategory(categ.id).toPromise()
-        // console.log(this.subCategoryList)
-        return {
-          ...categ,subCategs:this.subCategoryList
-        }
-      }))
+  createFormGroup() {
+    this.form = this.formBuilder.group({
+      title: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
+      value: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
+      categoryId: new FormControl('', Validators.required),
+      subCategoryId: new FormControl('', Validators.required),
+      gender: new FormControl('', ValidatorsCustom.noWhitespaceValidator),
+      images: new FormControl('', Validators.required),
+      description: new FormControl('')
     });
   }
-  addNewProduct(form: any) {
-    var formData = new FormData();
-    formData.append("title",form.value.product_name);
-    formData.append("value",form.value.product_price);
-    formData.append("description",form.value.product_description);
-    formData.append("gender",form.value.product_gender);
-    console.log(form.value.product_subcategory);
 
-    for (const file of this.files) {
-      formData.append("file", file);
+  criarProduto() {
+    console.log(this.form.value);
+    if (this.enableShipping()) {
+      var formData = new FormData();
+      formData.append("title", this.form.value.title);
+      formData.append("value", this.form.value.value);
+      formData.append("categoryId", this.form.value.categoryId);
+      formData.append("subCategoryId", this.form.value.subCategoryId);
+      formData.append("gender", this.form.value.gender);
+      formData.append("images", this.form.value.images);
+      formData.append("description", this.form.value.description);
+      this.productService.createProduct(formData).subscribe(
+        data => {
+          console.log(data);
+          SweetalertCustom.showAlertTimer('success', MSG_SUCCES).then(() => {
+            this.router.navigate(['/products']);
+          });
+        });
+      // window.location.href = "/products";
     }
-
-    formData.append("subCategoryId",form.value.product_subcategory);
-
-    this.productService.createProduct(formData).subscribe(data => {
-      console.log(data);
-    });
-    window.location.href="/products";
   }
 
   getFile(event: any) {
     this.files = event.target.files;
     for (const file of this.files) {
-      console.log(file);
+      this.form.value.imagem = file;
     }
   }
 
-  getCateg(event: any) {
-    this.subCategoryList = this.categoryList.filter((category :any)=>{
-      return category.id == event.target.value;
-    })
-    this.subCategoryList = this.subCategoryList[0].subCategs;
+  getAllCategory() {
+    this.productService.getCategory().subscribe(
+      (resp) => {
+        this.categoryList = resp;
+      },
+    );
+  }
+
+  getSubCategory(event: number) {
+    this.productService.getSubCategory(event).subscribe(
+      (resp) => {
+        this.subCategoryList = resp;
+      }
+    );
   }
 }

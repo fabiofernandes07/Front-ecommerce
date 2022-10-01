@@ -1,16 +1,33 @@
-<form style="margin-bottom: 30%;" class="was-validated row g-3">
-  <div class="col-md-3">
-    <label for="validationServer04" class="form-label">Categoria</label>
-    <select class="form-control" id="validationServer04" name="product_category" required [(ngModel)]="categoryId">
-      <option *ngFor="let categ of categoryList" value={{categ.id}}>{{categ.description}}</option>
-    </select>
-  </div>
-  <div class="col-md-4">
-    <label for="validationServer01" class="form-label">Título</label>
-    <input type="text" class="form-control" id="validationServer01" name="category_name" placeholder="Subcategoria"
-      required [(ngModel)]="categoryDescription">
-  </div>
-  <div style="padding-top: 200px; padding-bottom: 20px;" class="col-12">
-    <button routerLink="/products" (click)="AddSubCategory()" class="btn btn-primary">Adicionar Subcategoria</button>
+<form [formGroup]="form" (keydown.enter)="$event.preventDefault()" class="row g-3">
+  <div class="col-12 col-md-12">
+    <h3 class="title">Adicionar SubCategoria</h3>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="categoria" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.categoria}">Categoria</small>
+          </label>
+          <select class="form-control" formControlName="categoria" [ngClass]="setErrorValidate('categoria')">
+            <option value="">Selecione</option>
+            <option *ngFor="let categ of categoryList" [value]="categ.id">{{categ.description}}</option>
+          </select>
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.categoria"
+            [innerHTML]="validateMessage.messageDisplay.categoria"></small>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="subCategoria" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.subCategoria}">Subcategoria</small>
+          </label>
+          <input type="text" class="form-control" formControlName="subCategoria"
+            [ngClass]="setErrorValidate('subCategoria')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.subCategoria"
+            [innerHTML]="validateMessage.messageDisplay.subCategoria"></small>
+        </div>
+      </div>
+    </div>
+    <button type="submit" (click)="criarSubCategoria()" [disabled]="!enableShipping()"
+      class="btn btn-primary float-right buttonSave">Salvar</button>
   </div>
 </form>

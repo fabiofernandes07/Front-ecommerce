@@ -9,6 +9,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.title {
+    margin-top: 2%;
+    margin-bottom: 1rem !important;
+}
 
 .text-red {
     color: #dc3545;
@@ -25,4 +29,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight: 600;
     margin-top: 2%;
     text-align: left; 
+}
+
+.buttonSave {
+    margin-bottom: 10px;
+}
+
+.inputImage {
+    margin-top: 36px;
 }

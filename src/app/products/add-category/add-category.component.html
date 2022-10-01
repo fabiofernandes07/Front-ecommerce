@@ -1,9 +1,18 @@
-<form style="margin-bottom: 30%;"  class="was-validated row g-3">
-  <div class="col-md-4">
-    <label for="validationServer01" class="form-label">Título</label>
-    <input type="text" class="form-control" id="validationServer01" name="category_name" placeholder="Categoria"  required [(ngModel)]="Category">
-  </div>
-  <div style="padding-top: 200px; padding-bottom: 20px;" class="col-12">
-    <button (click)="AddCategory(Category)" class="btn btn-primary" type="submit">Adicionar categoria</button>
+<form [formGroup]="form" (keydown.enter)="$event.preventDefault()" class="row g-3">
+  <div class="col-12 col-md-12">
+    <h3 class="title">Adicionar Categoria</h3>
+    <div class="row">
+      <div class="col-12 col-md-12">
+        <div class="form-group">
+          <label for="categoria" class="form-required label">
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.categoria}">Categoria</small>
+          </label>
+          <input type="text" class="form-control" formControlName="categoria" [ngClass]="setErrorValidate('categoria')">
+          <small class="form-text text-red" *ngIf="validateMessage.messageDisplay.categoria"
+            [innerHTML]="validateMessage.messageDisplay.categoria"></small>
+        </div>
+      </div>
+    </div>
+    <button type="submit" (click)="criarCategoria()" [disabled]="!enableShipping()" class="btn btn-primary float-right buttonSave">Salvar</button>
   </div>
 </form>
