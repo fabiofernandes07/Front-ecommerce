@@ -25,7 +25,7 @@
       <div class="col-12 col-md-4">
         <div class="form-group">
           <label for="email" class="form-required label">
-            <small [ngClass]="{'text-red': validateMessage.messageDisplay.email}">Email</small>
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.email}">E-mail</small>
           </label>
           <input type="text" class="form-control" formControlName="email" placeholder="you@example.com"
             [ngClass]="setErrorValidate('email')">
@@ -59,7 +59,7 @@
       <div class="col-12 col-md-4">
         <div class="form-group">
           <label for="telefone" class="form-required label">
-            <small [ngClass]="{'text-red': validateMessage.messageDisplay.genero}">Genero</small>
+            <small [ngClass]="{'text-red': validateMessage.messageDisplay.genero}">Gênero</small>
           </label>
           <select type="text" class="form-control" formControlName="genero" [ngClass]="setErrorValidate('genero')">
             <option value="">Selecione</option>

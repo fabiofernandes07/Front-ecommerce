@@ -88,6 +88,10 @@ export class CadastroComponent extends FormBase implements OnInit {
             SweetalertCustom.showAlertTimer('success', MSG_SUCCES).then(() => {
               this.router.navigate(['/']);
             });
+          },
+          (error) => {
+            SweetalertCustom.showAlertConfirm('error', "E-mail digitado já está em uso!");
+            console.log(error);
           }
         );
     }
