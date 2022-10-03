@@ -53,7 +53,9 @@ export class AddProductComponent extends FormBase implements OnInit {
       formData.append("categoryId", this.form.value.categoryId);
       formData.append("subCategoryId", this.form.value.subCategoryId);
       formData.append("gender", this.form.value.gender);
-      formData.append("images", this.form.value.images);
+      for (const file of this.files) {
+        formData.append("file", file);
+      }
       formData.append("description", this.form.value.description);
       this.productService.createProduct(formData).subscribe(
         data => {
@@ -68,9 +70,6 @@ export class AddProductComponent extends FormBase implements OnInit {
 
   getFile(event: any) {
     this.files = event.target.files;
-    for (const file of this.files) {
-      this.form.value.imagem = file;
-    }
   }
 
   getAllCategory() {

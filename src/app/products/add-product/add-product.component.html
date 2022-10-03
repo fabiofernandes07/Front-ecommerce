@@ -69,7 +69,7 @@
         <div class="input-group">
           <div class="custom-file inputImage">
             <input type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon04"
-              formControlName="images" (change)="getFile($event)" [ngClass]="setErrorValidate('images')">
+              formControlName="images" (change)="getFile($event)" [ngClass]="setErrorValidate('images')" multiple>
             <label class="custom-file-label" for="inputGroupFile04">Selecione a Imagem</label>
           </div>
         </div>
