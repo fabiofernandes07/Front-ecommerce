@@ -1,37 +1,45 @@
 <!-- Product section-->
 <section class="py-5">
-  <div class="container px-4 px-lg-5 my-5">
+  <form [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+    <div class="container px-4 px-lg-5 my-5">
       <div class="row gx-4 gx-lg-5 align-items-center">
-          <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="http://localhost:8080/{{productData.images[0].url}}" alt="..." /></div>
-          <div class="col-md-6">
-              <h1 class="display-5 fw-bolder">{{productData.title}}</h1>
-              <div class="fs-5 mb-5">
-                  <span class="text-decoration-line-through">R$:{{productData.value}}</span>
-              </div>
-              <p class="lead">{{productData.description}}</p>
-              <div class="d-flex">
-
-                  <button (click)="addtocart(productData)" class="btn btn-outline-dark flex-shrink-0" type="button">
-                      <i class="bi-cart-fill me-1"></i>
-                      Adicionar ao Carrinho
-                  </button>
-                  <div class="col-md-3">
-                    <label for="validationServer07" class="form-label">Tamanho</label>
-                    <select class="form-select" id="validationServer07" name="product_size" required [(ngModel)]="sizeId">
-                      <option *ngFor="let size of listSize" value={{size.id}} >{{size.description}}</option>
-                    </select>
-                  </div>
-                  <div class="col-md-3">
-                    <label for="validationServer07" class="form-label">Número</label>
-                    <input class="form-control" type="text" required  [(ngModel)]="number">
-                  </div>
-                  <div class="col-md-3">
-                    <label for="validationServer07" class="form-label">Nome</label>
-                    <input class="form-control input" type="text" required  [(ngModel)]="name">
-                  </div>
-              </div>
+        <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
+            src="http://localhost:8080/{{productData.images[0].url}}" alt="..." /></div>
+        <div class="col-md-6">
+          <h1 class="display-5 fw-bolder">{{productData.title}}</h1>
+          <div class="fs-5 mb-5">
+            <span class="text-decoration-line-through">R$ {{productData.value}}</span>
           </div>
+          <p class="lead">{{productData.description}}</p>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <div class="form-group">
+                <label for="tamanho" class="form-label">Tamanho</label>
+                <select class="form-control" formControlName="tamanho">
+                  <option *ngFor="let size of listSize" [value]="size.id">{{size.description}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" formControlName="nome">
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="form-group">
+                <label for="numero" class="form-label">Número</label>
+                <input type="text" class="form-control" formControlName="numero">
+              </div>
+            </div>
+
+            <button type="submit" (click)="addtocart(productData)" class="w-100 btn btn-outline-dark button">
+              Adicionar ao Carrinho
+            </button>
+          </div>
+        </div>
       </div>
-  </div>
+    </div>
+  </form>
 </section>
 <!-- Related items section-->

@@ -91,7 +91,6 @@ export class CadastroComponent extends FormBase implements OnInit {
           },
           (error) => {
             SweetalertCustom.showAlertConfirm('error', "E-mail digitado já está em uso!");
-            console.log(error);
           }
         );
     }
